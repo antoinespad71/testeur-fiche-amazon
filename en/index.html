@@ -683,6 +683,7 @@ body.avec-barre { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
   // Adresse de contact : remplir pour afficher le contact par email (laisser "" pour le masquer)
   var EMAIL = "antoinespad71@gmail.com";
   // Adresse du script Google (voir le mode d'emploi). Vide = statistiques désactivées
+  var dernierAsin = "";   // dernière fiche analysée, pour relier un clic Fiverr à une fiche
   var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqGo0wuLbb8Wuq9jI9IRqt3RuAlTE8tsUfMPQfXyq_CP1qxp3nZkdEzLvoDfpuhdg5/exec";
   // Adresse du relais Cloudflare (voir le mode d'emploi). Vide = lecture par lien désactivée
   var WORKER_URL = "https://lecture-fiche.antoinespad71.workers.dev/";
@@ -1072,7 +1073,11 @@ body.avec-barre { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
           $("aplus").checked = !!d.aplus;
           activer("Check and complete your listing");
           info("Listing read.", "ok");
-          evenement(auto ? "analyse auto (lien du mail)" : "lien analysé", d.asin || "");
+          // détail lu par l'alerte et la relance : ASIN · marque · score · provenance
+          dernierAsin = d.asin || "";
+          var srcPage = ""; try { srcPage = new URLSearchParams(location.search).get("src") || ""; } catch (e) {}
+          evenement(auto ? "analyse auto (lien du mail)" : "lien analysé",
+            [d.asin || "", (d.marque || "").slice(0, 40), analyser().score + "/100", srcPage].join(" · "));
           auto = false;
           $("resultat").scrollIntoView({ behavior: "smooth", block: "start" });
         })
@@ -1124,7 +1129,7 @@ body.avec-barre { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
       var href = a.getAttribute("href") || "";
       if (href.indexOf("fiverr.com") >= 0) {
         var ou = a.closest(".avis") ? "avis" : a.closest(".cta") ? "bloc score" : a.closest(".service") ? "section service" : a.closest(".mbar") ? "barre mobile" : a.closest("header") ? "haut de page" : "autre";
-        evenement("clic Fiverr", ou);
+        evenement("clic Fiverr", ou + (dernierAsin ? " · " + dernierAsin : ""));
       } else if (href.indexOf("mailto:") === 0 || a.id === "copyMail") {
         evenement("clic email", a.id === "copyMail" ? "copie de l'adresse" : "lien");
       }
