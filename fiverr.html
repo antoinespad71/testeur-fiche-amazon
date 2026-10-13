@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Redirection vers Fiverr</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #eaf4ee; color: #15201b; font: 16px/1.5 "Segoe UI", system-ui, sans-serif; padding: 0 16px; }
+  p { text-align: center; }
+  a { color: #0b6a40; font-weight: 700; }
+</style>
+</head>
+<body>
+<p>Redirection vers l'offre Fiverr… / Redirecting to Fiverr…<br>
+<a id="lien" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings">Continuer / Continue</a></p>
+<script>
+// Lien Fiverr des mails de prospection : enregistre le clic (référence de la fiche),
+// puis redirige vers le gig. Le prospect qui a cliqué n'est pas relancé.
+(function () {
+  var FIVERR = "https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings";
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqGo0wuLbb8Wuq9jI9IRqt3RuAlTE8tsUfMPQfXyq_CP1qxp3nZkdEzLvoDfpuhdg5/exec";
+  var fiche = "", src = "";
+  try {
+    var p = new URLSearchParams(location.search);
+    fiche = (p.get("fiche") || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
+    src = (p.get("src") || "").slice(0, 40);
+  } catch (e) {}
+  try {
+    var corps = new URLSearchParams({ type: "evenement", evenement: "clic Fiverr (mail)",
+      detail: ["mail", fiche, src].join(" · "), provenance: document.referrer || "mail" });
+    if (!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, corps))) {
+      fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", keepalive: true, body: corps });
+    }
+  } catch (e) {}
+  setTimeout(function () { location.replace(FIVERR); }, 150);
+})();
+</script>
+</body>
+</html>
