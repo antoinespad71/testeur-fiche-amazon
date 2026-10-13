@@ -1062,7 +1062,8 @@ body.avec-barre { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
           $("aplus").checked = !!d.aplus;
           activer("Vérifiez et complétez votre fiche");
           info("Fiche lue.", "ok");
-          evenement("lien analysé", d.asin || "");
+          evenement(auto ? "analyse auto (lien du mail)" : "lien analysé", d.asin || "");
+          auto = false;
           $("resultat").scrollIntoView({ behavior: "smooth", block: "start" });
         })
         .catch(function (err) {
@@ -1077,8 +1078,19 @@ body.avec-barre { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
         })
         .then(function () { lienBtn.disabled = false; lienBtn.textContent = "Analyser ma fiche"; });
     }
-    lienBtn.addEventListener("click", analyserLien);
-    $("lienFiche").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); analyserLien(); } });
+    lienBtn.addEventListener("click", function () { auto = false; analyserLien(); });
+    $("lienFiche").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); auto = false; analyserLien(); } });
+
+    // Lien personnalisé : ?fiche=ASIN lance l'analyse de cette fiche dès l'ouverture de la page
+    var auto = false;
+    try {
+      var ficheParam = (new URLSearchParams(location.search).get("fiche") || "").trim().toUpperCase();
+      if (/^[A-Z0-9]{10}$/.test(ficheParam)) {
+        $("lienFiche").value = "https://www.amazon.fr/dp/" + ficheParam;
+        auto = true;
+        analyserLien();
+      }
+    } catch (e) {}
   }
 
   // ---- Envoi vers le script Google : statistiques
