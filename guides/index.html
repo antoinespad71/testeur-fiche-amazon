@@ -89,13 +89,29 @@ ol.etapes h3{margin-top:22px}
 footer{margin-top:28px;padding-block:20px 32px;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;border-top:1px solid var(--line)}
 footer a{color:var(--muted)}
 @media (max-width:600px){article,.bloc{padding:24px 18px;border-radius:18px}.btn.petit{padding:9px 11px;font-size:14px}.marque span{display:none}th,td{padding:8px}}
-</style>
+
+header.top{position:relative}
+.mg{position:relative}
+.mg>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:700 15px/1 var(--body);padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);white-space:nowrap;user-select:none}
+.mg>summary::-webkit-details-marker{display:none}
+.mg>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.mg[open]>summary::after{transform:translateY(2px) rotate(225deg)}
+.mg>summary:hover{border-color:var(--accent-ink)}
+.mg-panneau{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:300px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(14,60,38,.16);padding:8px}
+.mg-panneau ul{list-style:none;margin:0;padding:0}
+.mg-panneau li{margin:0}
+.mg-panneau a{display:block;padding:9px 12px;border-radius:8px;color:var(--fg);text-decoration:none;font:500 15px/1.35 var(--body)}
+.mg-panneau a:hover,.mg-panneau a[aria-current]{background:var(--accent-soft);color:var(--accent-ink)}
+.mg-panneau .tous{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.mg-panneau .tous a{font-weight:700;color:var(--accent-ink)}
+@media (max-width:600px){.mg{position:static}.mg>summary{padding:9px 10px;font-size:14px}.mg-panneau{left:0;right:0;width:auto;top:calc(100% - 4px)}}
+.tete-d{display:flex;align-items:center;gap:10px}</style>
 </head>
 <body>
 <div class="wrap">
 <header class="top">
 <a class="marque" href="https://antoinespad71.github.io/testeur-fiche-amazon/">Antoine Spadaccini<span>Spécialiste SEO Amazon</span></a>
-<a class="btn petit" href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-guides">Tester ma fiche</a>
+<div class="tete-d"><details class="mg"><summary>Guides</summary><nav class="mg-panneau" aria-label="Guides"><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/">Bullet points</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/">Description ou A+</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/">Images produit</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/">Mots-clés de recherche</a></li><li class="tous"><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/" aria-current="page">Tous les guides</a></li></ul></nav></details><a class="btn petit" href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-guides">Tester ma fiche</a></div>
 </header>
 <nav class="ariane" aria-label="Fil d'Ariane"><ol><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Testeur de fiche Amazon</a></li><li aria-current="page">Guides</li></ol></nav>
 <main class="bloc">
@@ -118,5 +134,10 @@ footer a{color:var(--muted)}
 <span><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Testeur de fiche Amazon</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Guides</a></span>
 </footer>
 </div>
+<script>
+(function(){var m=document.querySelectorAll("details.mg");if(!m.length)return;
+document.addEventListener("click",function(e){m.forEach(function(d){if(d.open&&!d.contains(e.target))d.removeAttribute("open")})});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(function(d){if(d.open){d.removeAttribute("open");d.querySelector("summary").focus()}})});})();
+</script>
 </body>
 </html>
