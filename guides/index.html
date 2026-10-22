@@ -28,6 +28,7 @@
 <style>
 :root{--bg:#eaf4ee;--surface:#fff;--fg:#15201b;--muted:#4a5751;--line:#d3e3d9;--accent:#0e7a4b;--accent-ink:#0b6a40;--accent-soft:#dcf0e4;--bright:#1dbf73;--sun:#f2a516;--sun-soft:#fff3d9;--bad:#c0392b;--bad-soft:#fdecea;--good:#1e8449;--display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"Public Sans","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;--shadow:0 1px 2px rgba(14,60,38,.06),0 8px 24px rgba(14,60,38,.07);color-scheme:light}
 *{box-sizing:border-box}html,body{margin:0}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:0 16px;-webkit-text-size-adjust:100%}
 .wrap{max-width:860px;margin:0 auto}
 a{color:var(--accent-ink);text-underline-offset:3px}
@@ -99,26 +100,33 @@ footer a{color:var(--muted)}
 
 header.top{position:relative}
 .mg{position:relative}
-.mg>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:700 15px/1 var(--body);padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);white-space:nowrap;user-select:none}
+.mg>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:700 15px/1 var(--body);padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);white-space:nowrap;user-select:none}
 .mg>summary::-webkit-details-marker{display:none}
-.mg>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
-.mg[open]>summary::after{transform:translateY(2px) rotate(225deg)}
 .mg>summary:hover{border-color:var(--accent-ink)}
-.mg-panneau{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:300px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(14,60,38,.16);padding:8px}
+.mg-ico{position:relative;width:18px;height:14px;flex:none}
+.mg-ico i{position:absolute;left:0;right:0;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s,top .2s}
+.mg-ico i:nth-child(1){top:0}.mg-ico i:nth-child(2){top:6px}.mg-ico i:nth-child(3){top:12px}
+.mg[open] .mg-ico i:nth-child(1){top:6px;transform:rotate(45deg)}
+.mg[open] .mg-ico i:nth-child(2){opacity:0}
+.mg[open] .mg-ico i:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mg-panneau{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:320px;max-height:calc(100vh - 100px);overflow-y:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(14,60,38,.16);padding:8px}
 .mg-panneau ul{list-style:none;margin:0;padding:0}
 .mg-panneau li{margin:0}
-.mg-panneau a{display:block;padding:9px 12px;border-radius:8px;color:var(--fg);text-decoration:none;font:500 15px/1.35 var(--body)}
+.mg-panneau a{display:block;padding:10px 12px;border-radius:8px;color:var(--fg);text-decoration:none;font:700 16px/1.35 var(--body)}
 .mg-panneau a:hover,.mg-panneau a[aria-current]{background:var(--accent-soft);color:var(--accent-ink)}
-.mg-panneau .tous{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
-.mg-panneau .tous a{font-weight:700;color:var(--accent-ink)}
+.mg-panneau .sous{margin:0 0 4px 12px;padding-left:8px;border-left:2px solid var(--line)}
+.mg-panneau .sous a{font-weight:500;font-size:15px;padding:7px 10px;color:var(--muted)}
+.mg-panneau .sous a:hover,.mg-panneau .sous a[aria-current]{color:var(--accent-ink)}
+.mg-panneau .sep{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
 @media (max-width:600px){.mg{position:static}.mg>summary{padding:9px 10px;font-size:14px}.mg-panneau{left:0;right:0;width:auto;top:calc(100% - 4px)}}
+@media (max-width:360px){.mg-txt{display:none}}
 .tete-d{display:flex;align-items:center;gap:10px}</style>
 </head>
 <body>
 <div class="wrap">
 <header class="top">
 <a class="marque" href="https://antoinespad71.github.io/testeur-fiche-amazon/">Antoine Spadaccini<span>Spécialiste SEO Amazon</span></a>
-<div class="tete-d"><details class="mg"><summary>Guides</summary><nav class="mg-panneau" aria-label="Guides"><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/">Bullet points</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/">Description ou A+</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/">Images produit</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/">Mots-clés de recherche</a></li><li class="tous"><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/" aria-current="page">Tous les guides</a></li></ul></nav></details><a class="btn petit" href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-guides">Tester ma fiche</a></div>
+<div class="tete-d"><details class="mg"><summary aria-label="Menu"><span class="mg-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="mg-txt">Menu</span></summary><nav class="mg-panneau" aria-label="Menu du site"><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Testeur de fiche Amazon</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/" aria-current="page">Guides</a><ul class="sous"><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/">Bullet points</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/">Description ou A+</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/">Images produit</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/">Mots-clés de recherche</a></li></ul></li><li class="sep"><a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/">Contact</a></li></ul></nav></details><a class="btn petit" href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-guides">Tester ma fiche</a></div>
 </header>
 <nav class="ariane" aria-label="Fil d'Ariane"><ol><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Testeur de fiche Amazon</a></li><li aria-current="page">Guides</li></ol></nav>
 <main class="bloc">
