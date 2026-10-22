@@ -385,6 +385,17 @@ header.top{position:relative}
 @media (max-width: 420px) { .marque-perso { display: none; } header.top { justify-content: flex-end; } }
 @media (max-width: 360px) { .tete-droite { gap: 4px; } .head-cta { padding: 8px; font-size: 13px; } .mg > summary { padding: 8px; font-size: 13px; } }
 
+/* Animation du résultat d'analyse */
+@keyframes monte { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(14, 122, 75, .55); } 70% { box-shadow: 0 0 0 16px rgba(14, 122, 75, 0); } 100% { box-shadow: 0 0 0 0 rgba(14, 122, 75, 0); } }
+.rapport.anim .score-card { animation: monte .5s ease both; }
+.rapport.anim .cta { animation: monte .5s ease .15s both; }
+.rapport.anim #zoneChamps { animation: monte .5s ease .3s both; }
+.rapport.anim #corrBloc { animation: monte .5s ease .4s both; }
+.rapport.anim .cta-main { animation: pulse 1.3s ease 1.2s 1; }
+.bar .fill { transition: width .8s cubic-bezier(.2, .7, .3, 1); }
+@media (prefers-reduced-motion: reduce) { .rapport.anim .score-card, .rapport.anim .cta, .rapport.anim #zoneChamps, .rapport.anim #corrBloc, .rapport.anim .cta-main { animation: none; } }
+
 /* Animations */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.vu{opacity:1;transform:none}
@@ -796,6 +807,7 @@ header.top{position:relative}
 
   var $ = function (id) { return document.getElementById(id); };
   // Score animé : le chiffre compte jusqu'au score (sauf si l'appareil demande moins d'animations)
+  var animerBarres = false;
   var MOINS_ANIM = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function compter(el, cible) {
     var depart = parseInt(el.textContent, 10) || 0;
@@ -972,17 +984,25 @@ header.top{position:relative}
     $("mTxt").textContent = v[0];
 
     var bars = $("bars"); bars.textContent = "";
+    var aRemplir = [];
     r.parts.forEach(function (p) {
       var row = document.createElement("div"); row.className = "bar";
       var n = document.createElement("span"); n.textContent = p[0];
       var tr = document.createElement("div"); tr.className = "track";
-      var fl = document.createElement("div"); fl.className = "fill"; fl.style.width = (p[1] === null ? 0 : p[1] / p[2] * 100) + "%";
+      var fl = document.createElement("div"); fl.className = "fill";
+      var largeur = (p[1] === null ? 0 : p[1] / p[2] * 100) + "%";
+      // nouvelle analyse : la barre part de zéro et se remplit
+      if (animerBarres) { fl.style.width = "0%"; aRemplir.push([fl, largeur]); } else { fl.style.width = largeur; }
       tr.appendChild(fl);
       var pts = document.createElement("span"); pts.className = "pts"; pts.textContent = p[1] === null ? "A+" : p[1] + "/" + p[2];
       if (p[1] === null) { row.title = "Description hidden by A+ content: not assessed"; tr.classList.add("na"); }
       row.appendChild(n); row.appendChild(tr); row.appendChild(pts);
       bars.appendChild(row);
     });
+    if (animerBarres) {
+      animerBarres = false;
+      setTimeout(function () { aRemplir.forEach(function (x) { x[0].style.width = x[1]; }); }, 150);
+    }
 
     var iss = $("issues"); iss.textContent = "";
     groupe(iss, "Fix first", "haute", r.issues.filter(function (i) { return i.sev === "haute"; }));
@@ -1048,6 +1068,10 @@ header.top{position:relative}
     anneau.style.transition = "none"; anneau.style.strokeDashoffset = "314.16";
     anneau.getBoundingClientRect(); anneau.style.transition = "";
     $("scoreTxt").textContent = "0"; $("mScore").textContent = "0";
+    // apparition en cascade du résultat et remplissage des barres
+    var res = $("resultat");
+    res.classList.remove("anim"); res.getBoundingClientRect();
+    if (!MOINS_ANIM) { res.classList.add("anim"); animerBarres = true; }
     rendre();
   }
   $("ih").addEventListener("input", function () { if ($("ih").value.trim()) $("ihAlerte").hidden = true; });
