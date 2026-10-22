@@ -464,7 +464,7 @@ header.top{position:relative}
         <p id="ctaTexte">Je réécris votre fiche complète, prête à copier dans Seller Central.</p>
         <div class="cta-actions">
           <a class="cta-main" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">Commander sur Fiverr</a>
-          <a class="cta-mail" id="ctaMail" href="#" hidden>Me contacter par email</a>
+          <a class="cta-mail" id="ctaMail" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/?src=testeur" hidden>Me poser une question</a>
         </div>
       </div>
     </div>
@@ -569,7 +569,7 @@ header.top{position:relative}
       </ul>
       <div class="service-actions">
         <a class="btn solid" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">Voir les offres sur Fiverr</a>
-        <span class="mail-line" id="mailLine" hidden>ou écrivez‑moi : <a id="mailLink" href="#"></a> <button type="button" class="btn small" id="copyMail">Copier</button></span>
+        <span class="mail-line" id="mailLine" hidden>ou <a id="mailLink" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/?src=testeur">posez‑moi une question</a></span>
       </div>
       <p class="note-offres">1 fiche, 3 fiches, ou 5 fiches avec audit de vos fiches actuelles. Devis sur mesure pour les catalogues plus larges.</p>
     </div>
@@ -713,7 +713,7 @@ header.top{position:relative}
   <footer>
     <span>Antoine Spadaccini, Spécialiste SEO Amazon</span>
     <span>Score indicatif, basé sur les règles publiques d'Amazon.fr.</span>
-    <nav class="guides-liens" aria-label="Guides">Guides : <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Tous les guides</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a></nav>
+    <nav class="guides-liens" aria-label="Guides">Guides : <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Tous les guides</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/">Contact</a></nav>
   </footer>
 </div>
 
@@ -728,8 +728,8 @@ header.top{position:relative}
 <script>
 (function () {
   "use strict";
-  // Adresse de contact : remplir pour afficher le contact par email (laisser "" pour le masquer)
-  var EMAIL = "antoinespad71@gmail.com";
+  // Page de contact (formulaire) : laisser "" pour masquer les liens de contact
+  var CONTACT = "https://antoinespad71.github.io/testeur-fiche-amazon/contact/";
   // Adresse du script Google (voir le mode d'emploi). Vide = statistiques désactivées
   var dernierAsin = "";   // dernière fiche analysée, pour relier un clic Fiverr à une fiche
   var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqGo0wuLbb8Wuq9jI9IRqt3RuAlTE8tsUfMPQfXyq_CP1qxp3nZkdEzLvoDfpuhdg5/exec";
@@ -966,20 +966,15 @@ header.top{position:relative}
       $("ctaTexte").textContent = (nh ? nh + " correction" + (nh > 1 ? "s" : "") + " prioritaire" + (nh > 1 ? "s" : "") + " sur votre fiche. " : "") +
         "Je la réécris entièrement, prête à copier dans Seller Central.";
     }
-    if (EMAIL) {
-      var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Optimisation de ma fiche Amazon (score " + r.score + "/100)");
+    if (CONTACT) {
+      // le formulaire de contact reprend la fiche analysée et son score
+      var href = CONTACT + "?src=testeur&score=" + r.score + (actif && dernierAsin ? "&fiche=" + dernierAsin : "");
       $("ctaMail").href = href; $("mailLink").href = href;
     }
   }
 
-  if (EMAIL) {
+  if (CONTACT) {
     $("ctaMail").hidden = false; $("mailLine").hidden = false;
-    $("mailLink").textContent = EMAIL;
-    $("copyMail").addEventListener("click", function () {
-      var b = this;
-      function done() { b.textContent = "Copié"; setTimeout(function () { b.textContent = "Copier"; }, 1500); }
-      if (navigator.clipboard) navigator.clipboard.writeText(EMAIL).then(done, function () {});
-    });
   }
 
   var EXEMPLE = {
@@ -1172,14 +1167,14 @@ header.top{position:relative}
     var teste = false;
     $("f").addEventListener("input", function () { if (!teste) { teste = true; evenement("test"); } });
     document.addEventListener("click", function (e) {
-      var a = e.target.closest ? e.target.closest("a, #copyMail") : null;
+      var a = e.target.closest ? e.target.closest("a") : null;
       if (!a) return;
       var href = a.getAttribute("href") || "";
       if (href.indexOf("fiverr.com") >= 0) {
         var ou = a.closest(".avis") ? "avis" : a.closest(".cta") ? "bloc score" : a.closest(".service") ? "section service" : a.closest(".mbar") ? "barre mobile" : a.closest("header") ? "haut de page" : "autre";
         evenement("clic Fiverr", ou + (dernierAsin ? " · " + dernierAsin : ""));
-      } else if (href.indexOf("mailto:") === 0 || a.id === "copyMail") {
-        evenement("clic email", a.id === "copyMail" ? "copie de l'adresse" : "lien");
+      } else if (href.indexOf("/contact/") >= 0) {
+        evenement("clic contact", (a.closest(".cta") ? "bloc score" : a.closest(".service") ? "section service" : "autre") + (dernierAsin ? " · " + dernierAsin : ""));
       }
     });
 
