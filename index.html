@@ -380,9 +380,28 @@ header.top{position:relative}
 .mg-panneau .sep{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
 @media (max-width:600px){.mg{position:static}.mg>summary{padding:9px 10px;font-size:14px}.mg-panneau{left:0;right:0;width:auto;top:calc(100% - 4px)}}
 @media (max-width:360px){.mg-txt{display:none}}
+/* Mobile et tablette : en-tête toujours visible en haut de l'écran */
+@media (max-width:920px){header.top{position:sticky;top:0;z-index:40;background:var(--bg);margin-inline:-16px;padding-inline:16px;box-shadow:0 1px 0 var(--line),0 6px 16px rgba(14,60,38,.06)}html{scroll-padding-top:80px}}
+@media (max-width:600px){.mg-panneau{left:16px;right:16px}}
 @media (max-width: 480px) { .tete-droite { gap: 6px; } .marque-perso img { width: 36px; height: 36px; } .head-cta { padding: 9px 10px; font-size: 13.5px; } .langues a, .langues span { padding: 7px 8px; } }
 @media (max-width: 420px) { .marque-perso { display: none; } header.top { justify-content: flex-end; } }
 @media (max-width: 360px) { .tete-droite { gap: 4px; } .head-cta { padding: 8px; font-size: 13px; } .mg > summary { padding: 8px; font-size: 13px; } }
+
+/* Animations */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.vu{opacity:1;transform:none}
+@keyframes glisse{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mg[open] .mg-panneau{animation:glisse .18s ease-out}
+.faq details[open]>p,.faq-item[open]>p,details.contenu[open]>.contenu-corps{animation:glisse .25s ease-out}
+@media (hover:hover){
+.btn,.cta-main,.mg>summary{transition:transform .15s ease,box-shadow .15s ease,background .15s,border-color .15s}
+.btn:hover,.cta-main:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(14,60,38,.18)}
+.cartes a,.avis,.etapes li,.crit-liste li,.inclus li{transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.cartes a:hover,.avis:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(14,60,38,.12)}
+.etapes li:hover,.crit-liste li:hover,.inclus li:hover{transform:translateY(-2px)}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mg[open] .mg-panneau,.faq details[open]>p,.faq-item[open]>p,details.contenu[open]>.contenu-corps{animation:none}
+.btn:hover,.cta-main:hover,.cartes a:hover,.avis:hover,.etapes li:hover,.crit-liste li:hover,.inclus li:hover{transform:none}}
 </style>
 
 </head>
@@ -779,6 +798,22 @@ header.top{position:relative}
   }
 
   var $ = function (id) { return document.getElementById(id); };
+  // Score animé : le chiffre compte jusqu'au score (sauf si l'appareil demande moins d'animations)
+  var MOINS_ANIM = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  function compter(el, cible) {
+    var depart = parseInt(el.textContent, 10) || 0;
+    if (el._anim) cancelAnimationFrame(el._anim);
+    if (MOINS_ANIM || depart === cible) { el.textContent = cible; return; }
+    var t0 = 0, duree = 700;
+    function pas(t) {
+      if (!t0) t0 = t;
+      var k = Math.min(1, (t - t0) / duree);
+      k = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(depart + (cible - depart) * k);
+      if (k < 1) el._anim = requestAnimationFrame(pas);
+    }
+    el._anim = requestAnimationFrame(pas);
+  }
 
   function lireBullets() {
     return $("bullets").value.split("\n").map(function (l) { return l.replace(/^[\s•\-*·]+/, "").trim(); })
@@ -930,13 +965,13 @@ header.top{position:relative}
     var col = r.score >= 80 ? "var(--good)" : r.score >= 50 ? "var(--warn)" : "var(--bad)";
     ring.style.stroke = col;
     document.querySelector(".mbar .mscore").style.color = col;
-    $("scoreTxt").textContent = r.score;
+    compter($("scoreTxt"), r.score);
     var v = r.score >= 80 ? ["Fiche bien optimisée", "Quelques ajustements peuvent encore améliorer la visibilité."]
       : r.score >= 50 ? ["Fiche à améliorer", "Plusieurs points freinent le référencement et la conversion."]
       : ["Optimisation prioritaire", "La fiche ne respecte pas plusieurs règles clés d'Amazon."];
     $("verdict").textContent = v[0];
     $("verdictSub").textContent = v[1];
-    $("mScore").textContent = r.score;
+    compter($("mScore"), r.score);
     $("mTxt").textContent = v[0];
 
     var bars = $("bars"); bars.textContent = "";
@@ -1009,6 +1044,11 @@ header.top{position:relative}
     $("scoreVide").hidden = true; $("scorePlein").hidden = false;
     $("corrBloc").hidden = false; $("mbar").hidden = false;
     $("resultat").hidden = false; document.body.classList.add("avec-barre");
+    // le score repart de zéro à chaque nouvelle analyse
+    var anneau = $("ringVal");
+    anneau.style.transition = "none"; anneau.style.strokeDashoffset = "314.16";
+    anneau.getBoundingClientRect(); anneau.style.transition = "";
+    $("scoreTxt").textContent = "0"; $("mScore").textContent = "0";
     rendre();
   }
   $("ih").addEventListener("input", function () { if ($("ih").value.trim()) $("ihAlerte").hidden = true; });
@@ -1252,6 +1292,32 @@ header.top{position:relative}
 (function(){var m=document.querySelectorAll("details.mg");if(!m.length)return;
 document.addEventListener("click",function(e){m.forEach(function(d){if(d.open&&!d.contains(e.target))d.removeAttribute("open")})});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(function(d){if(d.open){d.removeAttribute("open");d.querySelector("summary").focus()}})});})();
+</script>
+<script>
+// Apparition des blocs au défilement
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var cibles = document.querySelectorAll([
+    "main h2", "article h2", ".enbref", ".table-defile", ".cta", ".cartes > li", ".etapes > li",
+    ".crit-liste > li", ".inclus > li", ".section-tete", ".card.service", ".avis-head", ".defile",
+    ".faq-liste", ".faq", ".fiverr-box", "ul.coches", ".auteur", ".sources", ".autres h2"
+  ].join(","));
+  var hauteur = window.innerHeight;
+  var obs = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("vu"); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  Array.prototype.forEach.call(cibles, function (el) {
+    // les blocs déjà visibles au chargement ne sont pas animés
+    if (el.getBoundingClientRect().top < hauteur * 0.9) return;
+    var rang = Array.prototype.indexOf.call(el.parentNode.children, el);
+    if (/^(LI)$/.test(el.tagName)) el.style.transitionDelay = (rang % 4) * 70 + "ms";
+    el.classList.add("rv");
+    obs.observe(el);
+  });
+})();
 </script>
 </body>
 </html>

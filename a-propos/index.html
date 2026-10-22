@@ -145,6 +145,22 @@ header.top{position:relative}
 .avis-meta { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
 .avis-note-bas { font-size: 14.5px; color: var(--muted); margin: 12px 0 0; }
 
+
+/* Animations */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.vu{opacity:1;transform:none}
+@keyframes glisse{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mg[open] .mg-panneau{animation:glisse .18s ease-out}
+.faq details[open]>p,.faq-item[open]>p,details.contenu[open]>.contenu-corps{animation:glisse .25s ease-out}
+@media (hover:hover){
+.btn,.cta-main,.mg>summary{transition:transform .15s ease,box-shadow .15s ease,background .15s,border-color .15s}
+.btn:hover,.cta-main:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(14,60,38,.18)}
+.cartes a,.avis,.etapes li,.crit-liste li,.inclus li{transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.cartes a:hover,.avis:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(14,60,38,.12)}
+.etapes li:hover,.crit-liste li:hover,.inclus li:hover{transform:translateY(-2px)}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mg[open] .mg-panneau,.faq details[open]>p,.faq-item[open]>p,details.contenu[open]>.contenu-corps{animation:none}
+.btn:hover,.cta-main:hover,.cartes a:hover,.avis:hover,.etapes li:hover,.crit-liste li:hover,.inclus li:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -351,6 +367,32 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
   window.addEventListener("pointercancel", fin);
   zone.addEventListener("click", function (e) { if (bouge) { e.preventDefault(); bouge = false; } }, true);
   requestAnimationFrame(tick);
+})();
+</script>
+<script>
+// Apparition des blocs au défilement
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var cibles = document.querySelectorAll([
+    "main h2", "article h2", ".enbref", ".table-defile", ".cta", ".cartes > li", ".etapes > li",
+    ".crit-liste > li", ".inclus > li", ".section-tete", ".card.service", ".avis-head", ".defile",
+    ".faq-liste", ".faq", ".fiverr-box", "ul.coches", ".auteur", ".sources", ".autres h2"
+  ].join(","));
+  var hauteur = window.innerHeight;
+  var obs = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("vu"); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  Array.prototype.forEach.call(cibles, function (el) {
+    // les blocs déjà visibles au chargement ne sont pas animés
+    if (el.getBoundingClientRect().top < hauteur * 0.9) return;
+    var rang = Array.prototype.indexOf.call(el.parentNode.children, el);
+    if (/^(LI)$/.test(el.tagName)) el.style.transitionDelay = (rang % 4) * 70 + "ms";
+    el.classList.add("rv");
+    obs.observe(el);
+  });
 })();
 </script>
 </body>
