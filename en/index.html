@@ -378,6 +378,9 @@ header.top{position:relative}
 .mg-panneau .sep{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
 @media (max-width:600px){.mg{position:static}.mg>summary{padding:9px 10px;font-size:14px}.mg-panneau{left:0;right:0;width:auto;top:calc(100% - 4px)}}
 @media (max-width:360px){.mg-txt{display:none}}
+/* Mobile et tablette : en-tête toujours visible en haut de l'écran */
+@media (max-width:920px){header.top{position:sticky;top:0;z-index:40;background:var(--bg);margin-inline:-16px;padding-inline:16px;box-shadow:0 1px 0 var(--line),0 6px 16px rgba(14,60,38,.06)}html{scroll-padding-top:80px}}
+@media (max-width:600px){.mg-panneau{left:16px;right:16px}}
 @media (max-width: 480px) { .tete-droite { gap: 6px; } .marque-perso img { width: 36px; height: 36px; } .head-cta { padding: 9px 10px; font-size: 13.5px; } .langues a, .langues span { padding: 7px 8px; } }
 @media (max-width: 420px) { .marque-perso { display: none; } header.top { justify-content: flex-end; } }
 @media (max-width: 360px) { .tete-droite { gap: 4px; } .head-cta { padding: 8px; font-size: 13px; } .mg > summary { padding: 8px; font-size: 13px; } }

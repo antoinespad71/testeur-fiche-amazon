@@ -119,6 +119,9 @@ header.top{position:relative}
 .mg-panneau .sep{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
 @media (max-width:600px){.mg{position:static}.mg>summary{padding:9px 10px;font-size:14px}.mg-panneau{left:0;right:0;width:auto;top:calc(100% - 4px)}}
 @media (max-width:360px){.mg-txt{display:none}}
+/* Mobile et tablette : en-tête toujours visible en haut de l'écran */
+@media (max-width:920px){header.top{position:sticky;top:0;z-index:40;background:var(--bg);margin-inline:-16px;padding-inline:16px;box-shadow:0 1px 0 var(--line),0 6px 16px rgba(14,60,38,.06)}html{scroll-padding-top:80px}}
+@media (max-width:600px){.mg-panneau{left:16px;right:16px}}
 .tete-d{display:flex;align-items:center;gap:10px}.profil-tete{display:flex;gap:22px;align-items:center;margin-bottom:22px}
 .profil-tete img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:3px solid var(--bright);flex:none}
 .profil-tete h1{margin:0 0 6px}.profil-tete .role{margin:0 0 6px;font-size:18px;color:var(--muted)}.profil-tete .note{margin:0}
