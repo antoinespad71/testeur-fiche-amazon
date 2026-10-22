@@ -27,6 +27,7 @@
 <style>
 :root{--bg:#eaf4ee;--surface:#fff;--fg:#15201b;--muted:#4a5751;--line:#d3e3d9;--accent:#0e7a4b;--accent-ink:#0b6a40;--accent-soft:#dcf0e4;--bright:#1dbf73;--sun:#f2a516;--sun-soft:#fff3d9;--bad:#c0392b;--bad-soft:#fdecea;--good:#1e8449;--display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"Public Sans","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;--shadow:0 1px 2px rgba(14,60,38,.06),0 8px 24px rgba(14,60,38,.07);color-scheme:light}
 *{box-sizing:border-box}html,body{margin:0}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:0 16px;-webkit-text-size-adjust:100%}
 .wrap{max-width:860px;margin:0 auto}
 a{color:var(--accent-ink);text-underline-offset:3px}
@@ -129,7 +130,8 @@ header.top{position:relative}
 .formulaire .btn:disabled{opacity:.6;cursor:wait}
 .statut{margin:0;font-weight:700}.statut:empty{display:none}.statut.err{color:var(--bad)}
 .score-rappel{margin:0;padding:12px 14px;border-radius:12px;background:var(--sun-soft);font-size:15.5px}
-.merci{background:var(--accent-soft);border-left:5px solid var(--accent);border-radius:14px;padding:6px 22px 8px;margin-top:8px}
+.lien-btn{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.merci{background:var(--accent-soft);border-left:5px solid var(--accent);border-radius:14px;padding:8px 26px 12px;margin-top:18px}
 .merci h2{margin-top:16px}
 @media (max-width:600px){.formulaire .btn{width:100%}}</style>
 </head>
@@ -143,14 +145,15 @@ header.top{position:relative}
 <main class="bloc">
 
 <h1>Me contacter</h1>
-<p class="intro">Une question sur votre fiche Amazon, un catalogue à optimiser ou un devis sur mesure ? Écrivez-moi ci-dessous, je vous réponds par email.</p>
+<p class="intro" id="c-intro">Une question sur votre fiche Amazon, un catalogue à optimiser ou un devis sur mesure ? Écrivez-moi ci-dessous, je vous réponds par email.</p>
 
-<div class="fiverr-box">
+<div class="fiverr-box" id="c-fiverr">
 <p><strong>Vous êtes prêt à commander ?</strong> Le plus simple est de m'écrire directement dans la messagerie Fiverr (recommandé) : vous y retrouvez mes offres, et la commande se fait au même endroit.</p>
 <a class="btn" href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener">M'écrire sur Fiverr</a>
 </div>
 
-<h2>Formulaire de contact</h2>
+<section id="c-zone" aria-labelledby="c-titre">
+<h2 id="c-titre">Formulaire de contact</h2>
 <form id="contact" class="formulaire" novalidate>
 <p class="score-rappel" id="scoreRappel" hidden></p>
 <div class="champ"><label for="c-nom">Nom <span aria-hidden="true">*</span></label><input id="c-nom" name="nom" type="text" autocomplete="name" required maxlength="80"></div>
@@ -164,16 +167,20 @@ header.top{position:relative}
 <button class="btn" type="submit" id="c-envoyer">Envoyer mon message</button>
 <p class="statut" id="c-statut" role="status" aria-live="polite"></p>
 </form>
+</section>
 <div class="merci" id="c-merci" hidden tabindex="-1">
 <h2>Message envoyé, merci !</h2>
-<p>Je vous réponds par email dès que possible. En attendant, vous pouvez <a href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-contact">tester votre fiche</a> ou parcourir les <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">guides</a>.</p>
+<p>Votre message est bien parti : je vous réponds par email dès que possible.</p>
+<p>En attendant, vous pouvez <a href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-contact">tester une autre fiche</a>, parcourir les <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">guides</a> ou découvrir <a href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener">mes offres sur Fiverr</a>.</p>
 </div>
 
-<h2>Avant de m'écrire</h2>
+<section id="c-avant" aria-labelledby="c-avant-t">
+<h2 id="c-avant-t">Avant de m'écrire</h2>
 <ul>
 <li><strong>Pour un premier diagnostic</strong>, le <a href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-contact">testeur gratuit</a> donne en quelques secondes un score sur 100 et la liste des points à corriger.</li>
 <li><strong>Pour savoir comment je travaille</strong>, tout est sur la page <a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a>.</li>
 </ul>
+</section>
 
 </main>
 <footer>
@@ -195,11 +202,34 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
   try { new URLSearchParams(location.search).forEach(function (v, k) { params[k] = v; }); } catch (e) {}
   var asin = (params.fiche || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
   var score = /^\d{1,3}$/.test(params.score || "") ? params.score : "";
-  if (asin.length === 10) document.getElementById("c-fiche").value = "https://www.amazon.fr/dp/" + asin;
-  if (score) {
-    var r = document.getElementById("scoreRappel");
-    r.textContent = "Votre fiche a obtenu " + score + "/100 au testeur : ce score sera joint à votre message.";
-    r.hidden = false;
+  var memoire = false;
+  // Sinon : dernière fiche analysée sur le testeur avec ce navigateur (moins de 30 jours)
+  if (asin.length !== 10) {
+    try {
+      var d = JSON.parse(localStorage.getItem("testeur-derniere-fiche") || "null");
+      if (d && /^[A-Z0-9]{10}$/.test(d.asin) && Date.now() - d.date < 30 * 86400000) {
+        asin = d.asin; score = String(d.score); memoire = true;
+      }
+    } catch (e) {}
+  }
+  var rappel = document.getElementById("scoreRappel");
+  if (asin.length === 10) {
+    document.getElementById("c-fiche").value = "https://www.amazon.fr/dp/" + asin;
+    rappel.textContent = (memoire ? "Votre dernière analyse sur le testeur" : "Votre fiche analysée") +
+      " (" + asin + (score ? ", score " + score + "/100" : "") + ") sera jointe à votre message. ";
+    var non = document.createElement("button");
+    non.type = "button"; non.className = "lien-btn"; non.textContent = "Ne pas la joindre";
+    non.addEventListener("click", function () {
+      score = ""; document.getElementById("c-fiche").value = ""; rappel.hidden = true;
+    });
+    rappel.appendChild(non);
+    rappel.hidden = false;
+    // autre fiche saisie à la main : le score de l'analyse ne la concerne plus
+    document.getElementById("c-fiche").addEventListener("input", function () {
+      if (this.value.toUpperCase().indexOf(asin) < 0) { score = ""; rappel.hidden = true; }
+    });
+  } else {
+    score = "";
   }
   function erreur(txt, champ) {
     statut.className = "statut err"; statut.textContent = txt;
@@ -216,11 +246,12 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
     bouton.disabled = true; bouton.textContent = "Envoi en cours…"; statut.textContent = "";
     var corps = new URLSearchParams({ type: "contact", nom: nom, email: email, fiche: f.fiche.value.trim(),
       volume: f.volume.value, message: message, site: f.site.value, score: score,
-      src: (params.src || "direct").slice(0, 40), duree: String(Math.round((Date.now() - debut) / 1000)) });
+      src: (params.src || (memoire && score ? "testeur (analyse mémorisée)" : "direct")).slice(0, 40), duree: String(Math.round((Date.now() - debut) / 1000)) });
     fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: corps })
       .then(function () {
-        f.hidden = true;
-        var m = document.getElementById("c-merci"); m.hidden = false; m.focus();
+        ["c-zone", "c-avant", "c-intro", "c-fiverr"].forEach(function (id) { document.getElementById(id).hidden = true; });
+        var m = document.getElementById("c-merci"); m.hidden = false;
+        m.scrollIntoView({ behavior: "smooth", block: "center" }); m.focus({ preventScroll: true });
       })
       .catch(function () {
         bouton.disabled = false; bouton.textContent = "Envoyer mon message";
