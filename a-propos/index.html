@@ -12,6 +12,13 @@
 <meta property="og:title" content="Antoine Spadaccini, spécialiste SEO Amazon : à propos">
 <meta property="og:description" content="Antoine Spadaccini optimise des fiches produits Amazon.fr : plus de 5 ans côté marque sur Amazon et Cdiscount, 4,8/5 sur 13 avis Fiverr. Méthode et offres.">
 <meta property="og:url" content="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">
+<meta property="og:site_name" content="Testeur de fiche Amazon">
+<meta property="og:image" content="https://antoinespad71.github.io/testeur-fiche-amazon/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Testeur de fiche Amazon gratuit : score sur 100">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e7a4b">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230e7a4b%22/%3E%3Cpath%20d%3D%22M20%2033l8%208%2016-18%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,11 +115,26 @@ header.top{position:relative}
 .profil-tete img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:3px solid var(--bright);flex:none}
 .profil-tete h1{margin:0 0 6px}.profil-tete .role{margin:0 0 6px;font-size:18px;color:var(--muted)}.profil-tete .note{margin:0}
 .etoiles{color:var(--sun);letter-spacing:1px}
-.avis-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:8px 0 14px}
-.avis-c{margin:0;background:#f6faf7;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
-.avis-c blockquote{margin:0;font-size:15.5px;line-height:1.55}
-.avis-c figcaption{font-size:14.5px;color:var(--muted)}
-@media (max-width:600px){.profil-tete{flex-direction:column;align-items:flex-start;gap:14px}.profil-tete img{width:88px;height:88px}}</style>
+@media (max-width:600px){.profil-tete{flex-direction:column;align-items:flex-start;gap:14px}.profil-tete img{width:88px;height:88px}}/* Avis */
+.avis-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; margin-bottom: 18px; }
+.avis-resume { margin: 0; font-size: 16px; }
+.avis-resume a { font-weight: 700; }
+.defile { overflow: hidden; margin-inline: -16px; padding: 6px 16px 10px; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.defile.drag { cursor: grabbing; }
+.defile.drag .avis { pointer-events: none; }
+.piste { display: flex; gap: 16px; width: max-content; will-change: transform; }
+.avis { width: 320px; flex: none; display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; color: var(--fg); text-decoration: none; box-shadow: var(--shadow); transition: border-color .2s; }
+.avis:hover { border-color: var(--accent); }
+.avis-top { display: flex; align-items: center; gap: 10px; font-size: 15.5px; line-height: 1.3; }
+.avis-top small { color: var(--muted); font-size: 13.5px; }
+.ini { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-ink); font-weight: 800; flex: none; }
+.avis-note { font-size: 15px; }
+.avis-note .vide { color: var(--line); }
+.avis-txt { font-size: 16px; line-height: 1.5; flex: 1; }
+.avis-meta { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.avis-note-bas { font-size: 14.5px; color: var(--muted); margin: 12px 0 0; }
+
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -137,7 +159,7 @@ header.top{position:relative}
 
 <h2>Mon parcours</h2>
 <p>J'ai passé plus de cinq ans du côté des marques, à gérer leurs fiches produits sur Amazon et Cdiscount. C'est là que j'ai appris ce qui fait qu'une fiche est trouvée, et ce qui fait qu'elle vend : un titre clair, des arguments qui parlent à l'acheteur, des visuels qui répondent à ses questions.</p>
-<p>Aujourd'hui, je mets cette expérience au service des vendeurs et des marques qui n'ont pas le temps de suivre l'évolution des règles d'Amazon, comme la limite des titres à 75 caractères appliquée depuis juillet 2026.</p>
+<p>Aujourd'hui, je mets cette expérience au service des vendeurs et des marques dont les fiches Amazon sont mal optimisées : peu visibles dans les résultats de recherche, ou bien visitées mais pas assez convaincantes pour déclencher l'achat. Je reprends chaque fiche en entier, pour le référencement comme pour la conversion, en tenant compte des dernières règles d'Amazon.</p>
 
 <h2>Ce que je fais</h2>
 <h3>L'optimisation complète de fiches Amazon.fr</h3>
@@ -170,8 +192,95 @@ header.top{position:relative}
 </ul>
 
 <h2>Ce que disent mes clients</h2>
-<p>Avis publiés sur Fiverr, reproduits tels quels.</p>
-<div class="avis-grille"><figure class="avis-c"><blockquote>« Un grand merci à Antoine pour son professionnalisme ! Son travail est bien au dessus de toutes mes espérances, travail de grande qualité, je recommande à tout le monde sans aucune hésitation. Réactif et très impliqué, bravo »</blockquote><figcaption><span class="etoiles" aria-label="5 sur 5">★★★★★</span> <strong>boris_avramov</strong>, France</figcaption></figure><figure class="avis-c"><blockquote>« Je suis très satisfait de cette collaboration. Antoine a répondu à toutes mes questions avec professionnalisme et réactivité. Le travail a été réalisé avec sérieux et la livraison a même été effectuée avant la date prévue. Je recommande sans hésitation ses services pour l’optimisation SEO Amazon. »</blockquote><figcaption><span class="etoiles" aria-label="5 sur 5">★★★★★</span> <strong>double_h2400</strong>, Suisse</figcaption></figure><figure class="avis-c"><blockquote>« great experience and fast work. definetly come back again »</blockquote><figcaption><span class="etoiles" aria-label="5 sur 5">★★★★★</span> <strong>jdp2024</strong>, Autriche</figcaption></figure></div>
+<p><span class="etoiles" aria-hidden="true">★★★★★</span> <strong>4,8/5</strong> sur 13 avis Fiverr. Avis publiés sur Fiverr, reproduits tels quels ; cliquez sur un avis pour le retrouver sur mon profil.</p>
+<div class="defile">
+      <div class="piste">
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">J</span><span><strong>jdp2024</strong><br><small>Autriche</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">great experience and fast work. definetly come back again</span>
+        <span class="avis-meta">50 € · 3 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">B</span><span><strong>boris_avramov</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">Un grand merci à Antoine pour son professionnalisme ! Son travail est bien au dessus de toutes mes espérances, travail de grande qualité, je recommande à tout le monde sans aucune hésitation. Réactif et très impliqué, bravo</span>
+        <span class="avis-meta">100 € à 200 € · 6 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">D</span><span><strong>double_h2400</strong><br><small>Suisse</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">Je suis très satisfait de cette collaboration. Antoine a répondu à toutes mes questions avec professionnalisme et réactivité. Le travail a été réalisé avec sérieux et la livraison a même été effectuée avant la date prévue. Je recommande sans hésitation ses services pour l’optimisation SEO Amazon.</span>
+        <span class="avis-meta">50 € · 1 jour</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">G</span><span><strong>gwen29</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">tres bon rapide , rapide, professionnel a conseiller</span>
+        <span class="avis-meta">50 € · 1 jour</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">S</span><span><strong>sebgry</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">Excellent results for our amazon listings ! Very professional and detailed.</span>
+        <span class="avis-meta">50 € · 3 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">D</span><span><strong>double_h2400</strong><br><small>Suisse</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">C’est la deuxième fois que je travail avec Anthoine et je suis toujours aussi ravis.. je recommande !!</span>
+        <span class="avis-meta">100 € à 200 € · 10 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">
+        <span class="avis-top"><span class="ini">C</span><span><strong>climsom</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="4 sur 5">★★★★<span class="vide">★</span></span> <strong>4</strong></span>
+        <span class="avis-txt">Antoine est très réactif et fournit un travail de qualité</span>
+        <span class="avis-meta">50 € · 1 jour</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">J</span><span><strong>jdp2024</strong><br><small>Autriche</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">great experience and fast work. definetly come back again</span>
+        <span class="avis-meta">50 € · 3 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">B</span><span><strong>boris_avramov</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">Un grand merci à Antoine pour son professionnalisme ! Son travail est bien au dessus de toutes mes espérances, travail de grande qualité, je recommande à tout le monde sans aucune hésitation. Réactif et très impliqué, bravo</span>
+        <span class="avis-meta">100 € à 200 € · 6 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">D</span><span><strong>double_h2400</strong><br><small>Suisse</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">Je suis très satisfait de cette collaboration. Antoine a répondu à toutes mes questions avec professionnalisme et réactivité. Le travail a été réalisé avec sérieux et la livraison a même été effectuée avant la date prévue. Je recommande sans hésitation ses services pour l’optimisation SEO Amazon.</span>
+        <span class="avis-meta">50 € · 1 jour</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">G</span><span><strong>gwen29</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">tres bon rapide , rapide, professionnel a conseiller</span>
+        <span class="avis-meta">50 € · 1 jour</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">S</span><span><strong>sebgry</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">Excellent results for our amazon listings ! Very professional and detailed.</span>
+        <span class="avis-meta">50 € · 3 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">D</span><span><strong>double_h2400</strong><br><small>Suisse</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="5 sur 5">★★★★★<span class="vide"></span></span> <strong>5</strong></span>
+        <span class="avis-txt">C’est la deuxième fois que je travail avec Anthoine et je suis toujours aussi ravis.. je recommande !!</span>
+        <span class="avis-meta">100 € à 200 € · 10 jours</span>
+      </a>
+      <a draggable="false" class="avis" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <span class="avis-top"><span class="ini">C</span><span><strong>climsom</strong><br><small>France</small></span></span>
+        <span class="avis-note"><span class="etoiles" aria-label="4 sur 5">★★★★<span class="vide">★</span></span> <strong>4</strong></span>
+        <span class="avis-txt">Antoine est très réactif et fournit un travail de qualité</span>
+        <span class="avis-meta">50 € · 1 jour</span>
+      </a>
+      </div>
+    </div>
 <p><a href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">Voir les 13 avis sur Fiverr</a></p>
 
 <h2>Travailler avec moi</h2>
@@ -179,7 +288,7 @@ header.top{position:relative}
 <li><strong>1 fiche</strong>, <strong>3 fiches</strong>, ou <strong>5 fiches avec l'audit</strong> de vos fiches actuelles ;</li>
 <li><strong>une offre sur mesure</strong> pour les catalogues plus larges.</li>
 </ul>
-<p>La commande passe par Fiverr. Pour une question avant de commander, écrivez-moi à <a href="mailto:antoinespad71@gmail.com">antoinespad71@gmail.com</a>.</p>
+<p>La commande passe par Fiverr. Pour une question avant de commander, écrivez-moi directement dans la <a href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener">messagerie Fiverr</a> (recommandé), ou par email à <a href="mailto:antoinespad71@gmail.com">antoinespad71@gmail.com</a>.</p>
 <div class="cta"><p class="cta-titre">Commencez par tester votre fiche</p><p>Le testeur gratuit vérifie votre fiche en quelques secondes et donne un score sur 100. Vous verrez tout de suite ce qu'il y a à corriger.</p><div class="actions">
 <a class="btn" href="https://antoinespad71.github.io/testeur-fiche-amazon/?src=guide-a-propos">Tester ma fiche gratuitement</a>
 <a class="btn ligne" href="https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings" target="_blank" rel="noopener">Faire optimiser ma fiche</a></div></div>
@@ -195,6 +304,43 @@ header.top{position:relative}
 (function(){var m=document.querySelectorAll("details.mg");if(!m.length)return;
 document.addEventListener("click",function(e){m.forEach(function(d){if(d.open&&!d.contains(e.target))d.removeAttribute("open")})});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(function(d){if(d.open){d.removeAttribute("open");d.querySelector("summary").focus()}})});})();
+</script>
+<script>
+(function () {
+  "use strict";
+  var zone = document.querySelector(".defile"), piste = document.querySelector(".piste");
+  if (!zone || !piste) return;
+  var reduit = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var x = 0, vitesse = 0.4, survol = false, enCours = false, depX = 0, depPos = 0, bouge = false, dernier = 0;
+  function moitie() { return piste.scrollWidth / 2 + 8; }
+  function boucle(v) { var m = moitie(); while (v <= -m) v += m; while (v > 0) v -= m; return v; }
+  function poser() { piste.style.transform = "translateX(" + x + "px)"; }
+  function tick(t) {
+    var dt = dernier ? Math.min(t - dernier, 50) : 16; dernier = t;
+    if (!reduit && !survol && !enCours) { x = boucle(x - vitesse * dt / 16); poser(); }
+    requestAnimationFrame(tick);
+  }
+  zone.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") survol = true; });
+  zone.addEventListener("pointerleave", function () { survol = false; });
+  zone.addEventListener("pointerdown", function (e) {
+    enCours = true; bouge = false; depX = e.clientX; depPos = x;
+  });
+  window.addEventListener("pointermove", function (e) {
+    if (!enCours) return;
+    var dx = e.clientX - depX;
+    if (!bouge && Math.abs(dx) > 6) { bouge = true; zone.classList.add("drag"); }
+    if (bouge) { x = boucle(depPos + dx); poser(); }
+  });
+  function fin() {
+    if (!enCours) return;
+    enCours = false;
+    setTimeout(function () { zone.classList.remove("drag"); }, 0);
+  }
+  window.addEventListener("pointerup", fin);
+  window.addEventListener("pointercancel", fin);
+  zone.addEventListener("click", function (e) { if (bouge) { e.preventDefault(); bouge = false; } }, true);
+  requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>
