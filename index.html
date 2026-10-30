@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://antoinespad71.github.io/testeur-fiche-amazon/">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Testeur de fiche Amazon">
-<meta property="og:image" content="https://antoinespad71.github.io/testeur-fiche-amazon/og-testeur.jpg">
+<meta property="og:image" content="https://antoinespad71.github.io/testeur-fiche-amazon/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Testeur de fiche Amazon gratuit : score sur 100">
@@ -280,9 +280,6 @@ input.ex, textarea.ex { color: var(--ghost); }
 .faq-item p { margin: 0; padding: 0 24px 22px; color: var(--muted); line-height: 1.65; max-width: 68ch; }
 @media (max-width: 600px) { .faq-item summary { padding: 16px 18px; font-size: 16.5px; } .faq-item p { padding: 0 18px 18px; } }
 
-.guides-liens { flex-basis: 100%; }
-.guides-liens a { color: var(--muted); }
-footer { margin-top: 24px; padding-block: 20px 32px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; border-top: 1px solid var(--line); }
 
 /* Barre de score fixe (affichée après l'analyse) */
 .mbar { display: flex; align-items: center; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--surface); color: var(--fg); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(14, 60, 38, .12); border-top: 1px solid var(--line); }
@@ -413,6 +410,36 @@ header.top{position:relative}
 }
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mg[open] .mg-panneau,.faq details[open]>p,.faq-item[open]>p,details.contenu[open]>.contenu-corps{animation:none}
 .btn:hover,.cta-main:hover,.cartes a:hover,.avis:hover,.etapes li:hover,.crit-liste li:hover,.inclus li:hover{transform:none}}
+
+/* En-tête fixe sur mobile : effet verre dépoli */
+@media (max-width:920px){@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){header.top{background:rgba(234,244,238,.72);-webkit-backdrop-filter:saturate(170%) blur(14px);backdrop-filter:saturate(170%) blur(14px)}}}
+
+/* Pied de page en colonnes */
+footer.pied{display:block;margin-top:32px;padding:32px 0 calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--muted)}
+.pied-grille{display:grid;grid-template-columns:1.5fr 1fr 1.3fr 1fr;gap:28px 32px}
+.pied-marque strong{display:block;font:800 19px/1.2 var(--display);color:var(--fg)}
+.pied-marque p{margin:6px 0 0;max-width:24em}
+.pied-note{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:7px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:14px;color:var(--fg)!important;text-decoration:none!important}
+.pied-note b{color:var(--sun)}
+.pied-note:hover{border-color:var(--accent)}
+.pied-t{font:700 13px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);margin:0 0 14px}
+.pied ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.pied ul a{color:var(--muted);text-decoration:none}
+.pied ul a:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+.pied-bas{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px}
+@media (max-width:920px){.pied-grille{grid-template-columns:1fr 1fr}.pied-marque{grid-column:1/-1}}
+@media (max-width:340px){.pied-grille{grid-template-columns:1fr}}
+
+/* Accueil : exemple de résultat animé */
+@keyframes ap-entre{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes ap-flotte{0%,100%{transform:none}50%{transform:translateY(-6px)}}
+@keyframes ap-tag{from{opacity:0;transform:translateY(6px) scale(.9)}to{opacity:1;transform:none}}
+.apercu.ap-joue .apercu-carte{animation:ap-entre .6s ease both}
+.apercu.ap-joue .apercu-tag{animation:ap-tag .4s ease .5s both}
+.apercu.ap-joue .fill{transition:width .9s cubic-bezier(.2,.7,.3,1)}
+.apercu.ap-joue .apercu-corr{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+.apercu.ap-joue .apercu-corr.vu{opacity:1;transform:none}
+.apercu .apercu-carte.flotte{animation:ap-flotte 6s ease-in-out infinite}
 </style>
 
 </head>
@@ -450,7 +477,7 @@ header.top{position:relative}
       <span class="apercu-tag">Exemple de résultat</span>
       <div class="apercu-carte">
         <div class="apercu-haut">
-          <svg class="ring" viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"></circle><circle cx="60" cy="60" r="50" fill="none" stroke="#b7770a" stroke-width="11" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="138" transform="rotate(-90 60 60)"></circle><text x="60" y="66" text-anchor="middle">56</text><text class="of" x="60" y="86" text-anchor="middle">/ 100</text></svg>
+          <svg class="ring" viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"></circle><circle class="ap-val" cx="60" cy="60" r="50" fill="none" stroke="#b7770a" stroke-width="11" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="138" transform="rotate(-90 60 60)"></circle><text class="ap-score" x="60" y="66" text-anchor="middle">56</text><text class="of" x="60" y="86" text-anchor="middle">/ 100</text></svg>
           <div><p class="v">Fiche à améliorer</p><p class="s">Plusieurs points freinent le référencement et la conversion.</p></div>
         </div>
         <div class="bars">
@@ -747,11 +774,15 @@ header.top{position:relative}
     </div>
   </section>
 
-  <footer>
-    <span>Antoine Spadaccini, Spécialiste SEO Amazon</span>
-    <span>Score indicatif, basé sur les règles publiques d'Amazon.fr.</span>
-    <nav class="guides-liens" aria-label="Guides">Guides : <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Tous les guides</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/">Contact</a></nav>
-  </footer>
+  <footer class="pied">
+<div class="pied-grille">
+<div class="pied-marque"><strong>Antoine Spadaccini</strong><p>Spécialiste SEO Amazon. J'optimise les fiches produits Amazon.fr des vendeurs et des marques.</p><a class="pied-note" href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener"><b aria-hidden="true">★</b> 4,8/5 · 13 avis Fiverr</a></div>
+<nav aria-label="Le testeur"><p class="pied-t">Le testeur</p><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Tester ma fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/#criteres">Ce que le test vérifie</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/en/">English version</a></li></ul></nav>
+<nav aria-label="Guides"><p class="pied-t">Guides</p><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Tous les guides</a></li></ul></nav>
+<nav aria-label="Antoine"><p class="pied-t">Antoine</p><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/">Contact</a></li><li><a href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener">Profil Fiverr</a></li></ul></nav>
+</div>
+<div class="pied-bas"><span>Score indicatif, basé sur les règles publiques d'Amazon.fr.</span><span>© 2026 Antoine Spadaccini</span></div>
+</footer>
 </div>
 
 <div class="mbar" id="mbar" aria-hidden="true" hidden>
@@ -1248,7 +1279,7 @@ header.top{position:relative}
       if (!a) return;
       var href = a.getAttribute("href") || "";
       if (href.indexOf("fiverr.com") >= 0) {
-        var ou = a.closest(".avis") ? "avis" : a.closest(".cta") ? "bloc score" : a.closest(".service") ? "section service" : a.closest(".mbar") ? "barre mobile" : a.closest("header") ? "haut de page" : "autre";
+        var ou = a.closest(".avis") ? "avis" : a.closest(".cta") ? "bloc score" : a.closest(".service") ? "section service" : a.closest(".mbar") ? "barre mobile" : a.closest("header") ? "haut de page" : a.closest("footer") ? "pied de page" : "autre";
         evenement("clic Fiverr", ou + (dernierAsin ? " · " + dernierAsin : ""));
       } else if (href.indexOf("/contact/") >= 0) {
         evenement("clic contact", (a.closest(".cta") ? "bloc score" : a.closest(".service") ? "section service" : "autre") + (dernierAsin ? " · " + dernierAsin : ""));
@@ -1341,6 +1372,33 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
     el.classList.add("rv");
     obs.observe(el);
   });
+})();
+</script>
+<script>
+// Accueil : l'exemple de résultat se remplit à l'ouverture de la page
+(function () {
+  var bloc = document.querySelector(".apercu"), carte = bloc && bloc.querySelector(".apercu-carte");
+  if (!carte || getComputedStyle(bloc).display === "none") return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var anneau = carte.querySelector(".ap-val"), txt = carte.querySelector(".ap-score"), corr = carte.querySelector(".apercu-corr");
+  var fills = carte.querySelectorAll(".fill"), cible = parseInt(txt.textContent, 10), fin = anneau.getAttribute("stroke-dashoffset");
+  var largeurs = Array.prototype.map.call(fills, function (f) { var w = f.style.width; f.style.width = "0%"; return w; });
+  anneau.setAttribute("stroke-dashoffset", "314.16"); txt.textContent = "0";
+  bloc.classList.add("ap-joue");
+  setTimeout(function () {
+    anneau.style.transition = "stroke-dashoffset 1.3s cubic-bezier(.2,.7,.3,1)";
+    anneau.style.strokeDashoffset = fin;
+    var t0 = 0;
+    (function pas(t) {
+      if (!t0) t0 = t;
+      var k = Math.min(1, (t - t0) / 1300); k = 1 - Math.pow(1 - k, 3);
+      txt.textContent = Math.round(cible * k);
+      if (k < 1) requestAnimationFrame(pas);
+    })(performance.now());
+    Array.prototype.forEach.call(fills, function (f, i) { setTimeout(function () { f.style.width = largeurs[i]; }, 450 + i * 160); });
+    setTimeout(function () { corr.classList.add("vu"); }, 1500);
+    setTimeout(function () { carte.classList.add("flotte"); }, 2300);
+  }, 450);
 })();
 </script>
 </body>

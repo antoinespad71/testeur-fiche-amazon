@@ -13,10 +13,10 @@
 <meta property="og:description" content="Guides gratuits pour vendeurs Amazon.fr : titre limité à 75 caractères, Caractéristiques de l&#x27;article, mots-clés de recherche. Règles et exemples.">
 <meta property="og:url" content="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">
 <meta property="og:site_name" content="Testeur de fiche Amazon">
-<meta property="og:image" content="https://antoinespad71.github.io/testeur-fiche-amazon/og-guides.jpg">
+<meta property="og:image" content="https://antoinespad71.github.io/testeur-fiche-amazon/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Guides pour vendeurs Amazon.fr">
+<meta property="og:image:alt" content="Testeur de fiche Amazon gratuit : score sur 100">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0e7a4b">
 
@@ -123,7 +123,25 @@ header.top{position:relative}
 /* Mobile et tablette : en-tête toujours visible en haut de l'écran */
 @media (max-width:920px){header.top{position:sticky;top:0;z-index:40;background:var(--bg);margin-inline:-16px;padding-inline:16px;box-shadow:0 1px 0 var(--line),0 6px 16px rgba(14,60,38,.06)}html{scroll-padding-top:80px}}
 @media (max-width:600px){.mg-panneau{left:16px;right:16px}}
+/* En-tête fixe sur mobile : effet verre dépoli */
+@media (max-width:920px){@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){header.top{background:rgba(234,244,238,.72);-webkit-backdrop-filter:saturate(170%) blur(14px);backdrop-filter:saturate(170%) blur(14px)}}}
 .tete-d{display:flex;align-items:center;gap:10px}
+/* Pied de page en colonnes */
+footer.pied{display:block;margin-top:32px;padding:32px 0 calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--muted)}
+.pied-grille{display:grid;grid-template-columns:1.5fr 1fr 1.3fr 1fr;gap:28px 32px}
+.pied-marque strong{display:block;font:800 19px/1.2 var(--display);color:var(--fg)}
+.pied-marque p{margin:6px 0 0;max-width:24em}
+.pied-note{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:7px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:14px;color:var(--fg)!important;text-decoration:none!important}
+.pied-note b{color:var(--sun)}
+.pied-note:hover{border-color:var(--accent)}
+.pied-t{font:700 13px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);margin:0 0 14px}
+.pied ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.pied ul a{color:var(--muted);text-decoration:none}
+.pied ul a:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+.pied-bas{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px}
+@media (max-width:920px){.pied-grille{grid-template-columns:1fr 1fr}.pied-marque{grid-column:1/-1}}
+@media (max-width:340px){.pied-grille{grid-template-columns:1fr}}
+
 /* Animations */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.vu{opacity:1;transform:none}
@@ -163,9 +181,14 @@ header.top{position:relative}
 
 </main>
 
-<footer>
-<span>Antoine Spadaccini, Spécialiste SEO Amazon · <a href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener">Profil Fiverr</a></span>
-<span><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Testeur de fiche Amazon</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Guides</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a> · <a href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/">Contact</a></span>
+<footer class="pied">
+<div class="pied-grille">
+<div class="pied-marque"><strong>Antoine Spadaccini</strong><p>Spécialiste SEO Amazon. J'optimise les fiches produits Amazon.fr des vendeurs et des marques.</p><a class="pied-note" href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener"><b aria-hidden="true">★</b> 4,8/5 · 13 avis Fiverr</a></div>
+<nav aria-label="Le testeur"><p class="pied-t">Le testeur</p><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/">Tester ma fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/#criteres">Ce que le test vérifie</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/en/">English version</a></li></ul></nav>
+<nav aria-label="Guides"><p class="pied-t">Guides</p><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/">Checklist de la fiche</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/">Fiche qui ne se vend pas</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/">Titre modifié par Amazon</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/">Caractéristiques de l'article</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/">Tous les guides</a></li></ul></nav>
+<nav aria-label="Antoine"><p class="pied-t">Antoine</p><ul><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/">À propos</a></li><li><a href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/">Contact</a></li><li><a href="https://fr.fiverr.com/antoine_spad" target="_blank" rel="noopener">Profil Fiverr</a></li></ul></nav>
+</div>
+<div class="pied-bas"><span>Score indicatif, basé sur les règles publiques d'Amazon.fr.</span><span>© 2026 Antoine Spadaccini</span></div>
 </footer>
 </div>
 <script>
