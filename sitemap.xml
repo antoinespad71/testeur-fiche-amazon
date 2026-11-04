@@ -23,50 +23,169 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-04</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/apercu-video-en.jpg</video:thumbnail_loc>
+      <video:title>Amazon.fr listing optimization, before and after</video:title>
+      <video:description>Fictional example of a full Amazon.fr listing optimization: audit, analysis of 3 competitors, 10 keywords, title, Item Highlights, bullet points, description and search terms.</video:description>
+      <video:content_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/optimisation-fiche-amazon-en.mp4</video:content_loc>
+      <video:duration>71</video:duration>
+      <video:publication_date>2026-11-04T17:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-checklist/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-not-selling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-not-selling/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-not-selling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-changed-my-title/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-changed-my-title/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-changed-my-title/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-item-highlights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-item-highlights/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-item-highlights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-bullet-points/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-bullet-points/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-bullet-points/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-description-a-plus-content/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-description-a-plus-content/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-description-a-plus-content/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-images/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-images/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-images/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-search-terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-search-terms/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-search-terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/contact/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
+    <lastmod>2026-11-04</lastmod>
   </url>
 </urlset>
