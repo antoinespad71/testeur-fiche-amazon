@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-04</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/apercu-video.jpg</video:thumbnail_loc>
+      <video:title>Optimisation d'une fiche Amazon.fr, avant et après</video:title>
+      <video:description>Exemple fictif d'optimisation complète d'une fiche produit Amazon.fr : audit, analyse de 3 concurrents, 10 mots-clés, titre, Caractéristiques de l'article, bullet points, description et mots-clés de recherche.</video:description>
+      <video:content_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/optimisation-fiche-amazon.mp4</video:content_loc>
+      <video:duration>71</video:duration>
+      <video:publication_date>2026-11-04T10:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
   <url>
     <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/</loc>
