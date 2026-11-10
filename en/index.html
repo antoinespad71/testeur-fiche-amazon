@@ -169,6 +169,10 @@ h1 em { font-style: normal; color: var(--accent); }
 .bar { display: grid; grid-template-columns: 140px minmax(0, 1fr) 48px; align-items: center; gap: 12px; font-size: 15px; }
 .bar .track { height: 10px; background: var(--accent-soft); border-radius: 6px; overflow: hidden; }
 .bar .fill { height: 100%; background: var(--accent); border-radius: 6px; transition: width .5s ease; }
+.bar .track { background: #e6eee9; }
+.bar .fill.faible { background: var(--bad); }
+.bar .fill.moyen { background: var(--warn); }
+.bar .fill.bon { background: var(--good); }
 .bar .pts { font: 600 13.5px var(--mono); color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
 .score-card .bars { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
 .score-vide { display: none; }
@@ -181,7 +185,8 @@ h1 em { font-style: normal; color: var(--accent); }
 .avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid var(--bright); }
 .cta-who { font-size: 16px; }
 .note-fiverr { font-size: 15px; margin-top: 3px !important; }
-.cta-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: auto; }
+.cta-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 4px; }
+.cta { justify-content: center; }
 .cta-main { display: inline-flex; justify-content: center; background: var(--accent); color: #ffffff; font-weight: 800; text-decoration: none; padding: 15px 22px; border-radius: 10px; font-size: 17px; }
 .cta-main:hover { background: var(--accent-ink); }
 .cta-mail { color: var(--accent-ink); font-weight: 600; font-size: 16px; }
@@ -234,6 +239,14 @@ input.ex, textarea.ex { color: var(--ghost); }
 .corr details .issues { margin-top: 10px; }
 
 /* Service */
+.video-cadre { position: relative; }
+.video-play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; width: 100%; border: 0; padding: 0; border-radius: 16px; cursor: pointer; color: #fff; background: radial-gradient(circle at 50% 50%, rgba(10, 40, 26, .38), rgba(10, 40, 26, .12) 60%, rgba(10, 40, 26, .05)); font: 700 15px/1 var(--body); }
+.video-play .rond { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); box-shadow: 0 10px 30px rgba(14, 60, 38, .35), 0 0 0 8px rgba(255, 255, 255, .35); transition: transform .2s ease, background .2s; }
+.video-play .rond svg { width: 34px; height: 34px; margin-left: 5px; }
+.video-play .duree { position: absolute; top: 14px; right: 14px; background: rgba(10, 40, 26, .72); padding: 7px 12px; border-radius: 999px; }
+.video-play:hover .rond { transform: scale(1.06); background: var(--accent-ink); }
+.video-cadre.lance .video-play { display: none; }
+@media (max-width: 600px) { .video-play .rond { width: 64px; height: 64px; } .video-play .rond svg { width: 26px; height: 26px; } .video-play .duree { top: 8px; right: 8px; font-size: 12.5px; padding: 5px 9px; } }
 .video-service { margin: 0; display: grid; gap: 10px; }
 .video-service video { width: 100%; height: auto; aspect-ratio: 16 / 9; display: block; border-radius: 16px; border: 1px solid var(--line); background: #eaf4ee; box-shadow: var(--shadow); }
 .video-service figcaption { font-size: 14.5px; color: var(--muted); }
@@ -507,9 +520,9 @@ footer.pied{display:block;margin-top:32px;padding:32px 0 calc(28px + env(safe-ar
           <div><p class="v">Needs improvement</p><p class="s">Several issues are holding back ranking and conversion.</p></div>
         </div>
         <div class="bars">
-          <div class="bar"><span>Title</span><div class="track"><div class="fill" style="width:43%"></div></div><span class="pts">15/35</span></div>
-          <div class="bar"><span>Bullet points</span><div class="track"><div class="fill" style="width:70%"></div></div><span class="pts">14/20</span></div>
-          <div class="bar"><span>Images (5)</span><div class="track"><div class="fill" style="width:80%"></div></div><span class="pts">8/10</span></div>
+          <div class="bar"><span>Title</span><div class="track"><div class="fill faible" style="width:43%"></div></div><span class="pts">15/35</span></div>
+          <div class="bar"><span>Bullet points</span><div class="track"><div class="fill moyen" style="width:70%"></div></div><span class="pts">14/20</span></div>
+          <div class="bar"><span>Images (5)</span><div class="track"><div class="fill bon" style="width:80%"></div></div><span class="pts">8/10</span></div>
         </div>
         <p class="apercu-corr"><strong>To fix · Title:</strong> 119 characters, over the 75 allowed. Amazon may rewrite it automatically.</p>
       </div>
@@ -652,9 +665,12 @@ footer.pied{display:block;margin-top:32px;padding:32px 0 calc(28px + env(safe-ar
         <p>Over 5 years of brand-side experience on Amazon and Cdiscount. I only work from your product information: nothing made up, no risky claims.</p>
       </div>
       <figure class="video-service">
-        <video controls muted playsinline preload="none" poster="../video/apercu-video-en.jpg" width="1280" height="720" title="Amazon.fr listing optimization, before and after" aria-label="Amazon.fr listing optimization, before and after (fictional example)">
+        <div class="video-cadre">
+          <video controls muted playsinline preload="none" poster="../video/apercu-video-en.jpg" width="1280" height="720" title="Amazon.fr listing optimization, before and after" aria-label="Amazon.fr listing optimization, before and after (fictional example)">
           <source src="../video/optimisation-fiche-amazon-en.mp4" type="video/mp4">
         </video>
+          <button type="button" class="video-play" hidden aria-label="Play the video"><span class="rond"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="duree">1 min 11</span></button>
+        </div>
         <figcaption>In just over a minute: the audit, the competitor analysis, the keywords, then the title, bullet points, description and backend, before and after. Fictional example.</figcaption>
         <details class="transcription">
           <summary>What the video shows</summary>
@@ -1111,7 +1127,10 @@ footer.pied{display:block;margin-top:32px;padding:32px 0 calc(28px + env(safe-ar
       var row = document.createElement("div"); row.className = "bar";
       var n = document.createElement("span"); n.textContent = p[0];
       var tr = document.createElement("div"); tr.className = "track";
-      var fl = document.createElement("div"); fl.className = "fill";
+      var fl = document.createElement("div");
+      // couleur de la barre : rouge sous 50 %, orange de 50 à 79 %, vert à partir de 80 % (comme l'anneau)
+      var ratio = p[1] === null ? 1 : p[1] / p[2];
+      fl.className = "fill " + (ratio >= .8 ? "bon" : ratio >= .5 ? "moyen" : "faible");
       var largeur = (p[1] === null ? 0 : p[1] / p[2] * 100) + "%";
       // nouvelle analyse : la barre part de zéro et se remplit
       if (animerBarres) { fl.style.width = "0%"; aRemplir.push([fl, largeur]); } else { fl.style.width = largeur; }
@@ -1500,6 +1519,17 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
     window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(function () { champ.focus({ preventScroll: true }); }, 500);
   });
+})();
+</script>
+<script>
+// Vidéo : bouton lecture au centre ; les commandes du lecteur apparaissent une fois la vidéo lancée
+(function () {
+  var cadre = document.querySelector(".video-cadre"), v = cadre && cadre.querySelector("video"), b = cadre && cadre.querySelector(".video-play");
+  if (!v || !b) return;
+  v.removeAttribute("controls"); b.hidden = false;
+  function lance() { cadre.classList.add("lance"); v.setAttribute("controls", ""); }
+  b.addEventListener("click", function () { lance(); var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+  v.addEventListener("play", lance);
 })();
 </script>
 </body>
