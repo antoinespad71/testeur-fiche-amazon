@@ -424,13 +424,21 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
 
     // texte principal : sans menus, pied de page, scripts
     var corps = doc.body ? doc.body.cloneNode(true) : doc.createElement("body");
-    corps.querySelectorAll("script,style,noscript,template,svg,nav,header,footer,form,iframe").forEach(function (e) { e.remove(); });
+    corps.querySelectorAll("script,style,noscript,template,svg,iframe").forEach(function (e) { e.remove(); });
+    // menus, en-tête, pied de page : retirés, sauf s'ils contiennent l'essentiel du texte (site entier dans un <form>, par exemple)
+    var totalMots = nbMots(txt(corps));
+    corps.querySelectorAll("nav,header,footer,aside,form").forEach(function (e) {
+      if (e.isConnected && nbMots(txt(e)) < totalMots * 0.5) e.remove();
+    });
     var principal = corps.querySelector("main,article,[role=main]") || corps;
     var texte = txt(principal);
     var mots = nbMots(texte);
     var titre = txt(doc.querySelector("head title")) || txt(doc.querySelector("title"));
     var desc = meta('meta[name="description" i]');
-    var h1s = Array.prototype.map.call(doc.querySelectorAll("h1"), txt).filter(Boolean);
+    // texte d'un titre, ou texte alternatif de son image (logo en H1)
+    var txtTitre = function (h) { return txt(h) || Array.prototype.map.call(h.querySelectorAll("img[alt]"), function (i) { return i.getAttribute("alt").trim(); }).join(" "); };
+    var h1Tous = doc.querySelectorAll("h1");
+    var h1s = Array.prototype.map.call(h1Tous, txtTitre).filter(Boolean);
     var hn = Array.prototype.map.call(doc.querySelectorAll("h1,h2,h3,h4,h5,h6"), function (h) { return { n: +h.tagName[1], t: txt(h) }; }).filter(function (h) { return h.t; });
     var h2s = hn.filter(function (h) { return h.n === 2; });
     var scripts = doc.querySelectorAll("script[src]").length;
@@ -464,7 +472,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
     for (var i = 1; i < hn.length; i++) if (hn[i].n > hn[i - 1].n + 1) { saut = true; break; }
     C({ id: "hn", partie: "page", nom: "Titres H1, H2, H3", max: 10, checks: [
       { pts: 4, ok: h1s.length === 1 ? 1 : (h1s.length > 1 ? 0.4 : 0),
-        ko: h1s.length ? "La page a " + h1s.length + " titres H1 : gardez-en un seul." : "La page n'a pas de titre H1." },
+        ko: h1s.length ? "La page a " + h1s.length + " titres H1 : gardez-en un seul." : (h1Tous.length ? "Le titre H1 est vide (sans texte lisible)." : "La page n'a pas de titre H1.") },
       { pts: 3, ok: h2s.length >= 2 ? 1 : (h2s.length === 1 ? 0.5 : 0), ko: h2s.length ? "Un seul H2 : découpez le contenu en plusieurs parties." : "Aucun H2 : le contenu n'est pas découpé en parties." },
       { pts: 1, ok: saut ? 0 : 1, ko: "Des niveaux de titres sont sautés (par exemple un H4 juste après un H2)." },
       { pts: 2, kw: true, ok: contient(h1s.join(" "), kw) ? 1 : 0, ko: "Le mot-clé « " + kw + " » n'est pas dans le H1." }
