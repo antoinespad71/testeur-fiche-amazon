@@ -202,4 +202,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/contact/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
+  <url>
+    <loc>https://spadaccini-seo.fr/testeur-seo-site/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://spadaccini-seo.fr/video/apercu-video-seo-site.jpg</video:thumbnail_loc>
+      <video:title>Optimisation SEO d'une page de site web pour Google et les IA</video:title>
+      <video:description>Exemple fictif d'optimisation SEO on-page : titre SEO, titres, texte, liens internes, textes alternatifs, avant et après dans Google, lisibilité par les IA et livrable PDF. Vidéo en anglais.</video:description>
+      <video:content_loc>https://spadaccini-seo.fr/video/optimisation-seo-site.mp4</video:content_loc>
+      <video:duration>50</video:duration>
+      <video:publication_date>2026-11-26T18:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
 </urlset>
