@@ -3,203 +3,203 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
+    <loc>https://spadaccini-seo.fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/"/>
     <lastmod>2026-11-04</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/apercu-video.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://spadaccini-seo.fr/video/apercu-video.jpg</video:thumbnail_loc>
       <video:title>Optimisation d'une fiche Amazon.fr, avant et après</video:title>
       <video:description>Exemple fictif d'optimisation complète d'une fiche produit Amazon.fr : audit, analyse de 3 concurrents, 10 mots-clés, titre, Caractéristiques de l'article, bullet points, description et mots-clés de recherche.</video:description>
-      <video:content_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/optimisation-fiche-amazon.mp4</video:content_loc>
+      <video:content_loc>https://spadaccini-seo.fr/video/optimisation-fiche-amazon.mp4</video:content_loc>
       <video:duration>71</video:duration>
       <video:publication_date>2026-11-04T10:00:00+01:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/"/>
+    <loc>https://spadaccini-seo.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/"/>
     <lastmod>2026-11-04</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/apercu-video-en.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://spadaccini-seo.fr/video/apercu-video-en.jpg</video:thumbnail_loc>
       <video:title>Amazon.fr listing optimization, before and after</video:title>
       <video:description>Fictional example of a full Amazon.fr listing optimization: audit, analysis of 3 competitors, 10 keywords, title, Item Highlights, bullet points, description and search terms.</video:description>
-      <video:content_loc>https://antoinespad71.github.io/testeur-fiche-amazon/video/optimisation-fiche-amazon-en.mp4</video:content_loc>
+      <video:content_loc>https://spadaccini-seo.fr/video/optimisation-fiche-amazon-en.mp4</video:content_loc>
       <video:duration>71</video:duration>
       <video:publication_date>2026-11-04T17:00:00+01:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
+    <loc>https://spadaccini-seo.fr/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/"/>
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/"/>
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-checklist/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
+    <loc>https://spadaccini-seo.fr/guides/checklist-fiche-produit-amazon/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/checklist-fiche-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-listing-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/checklist-fiche-produit-amazon/"/>
     <lastmod>2026-11-23</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-checklist/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-checklist/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/checklist-fiche-produit-amazon/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-listing-checklist/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/checklist-fiche-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-listing-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/checklist-fiche-produit-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-not-selling/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <loc>https://spadaccini-seo.fr/guides/fiche-amazon-ne-se-vend-pas/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-listing-not-selling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/fiche-amazon-ne-se-vend-pas/"/>
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-not-selling/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-listing-not-selling/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-listing-not-selling/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/fiche-amazon-ne-se-vend-pas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-listing-not-selling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/fiche-amazon-ne-se-vend-pas/"/>
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/produit-amazon-invisible-recherche/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/produit-amazon-invisible-recherche/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-not-showing-in-search/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/produit-amazon-invisible-recherche/"/>
+    <loc>https://spadaccini-seo.fr/guides/produit-amazon-invisible-recherche/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/produit-amazon-invisible-recherche/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-product-not-showing-in-search/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/produit-amazon-invisible-recherche/"/>
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-not-showing-in-search/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/produit-amazon-invisible-recherche/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-not-showing-in-search/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/produit-amazon-invisible-recherche/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-product-not-showing-in-search/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/produit-amazon-invisible-recherche/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-product-not-showing-in-search/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/produit-amazon-invisible-recherche/"/>
     <lastmod>2026-11-10</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-changed-my-title/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
+    <loc>https://spadaccini-seo.fr/guides/titre-amazon-modifie/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/titre-amazon-modifie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-changed-my-title/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/titre-amazon-modifie/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-changed-my-title/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-changed-my-title/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/titre-amazon-modifie/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-changed-my-title/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/titre-amazon-modifie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-changed-my-title/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/titre-amazon-modifie/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-item-highlights/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
+    <loc>https://spadaccini-seo.fr/guides/point-fort-article-amazon/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/point-fort-article-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-item-highlights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/point-fort-article-amazon/"/>
     <lastmod>2026-11-23</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-item-highlights/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-item-highlights/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/point-fort-article-amazon/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-item-highlights/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/point-fort-article-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-item-highlights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/point-fort-article-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-bullet-points/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
+    <loc>https://spadaccini-seo.fr/guides/bullet-points-amazon/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/bullet-points-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-bullet-points/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/bullet-points-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-bullet-points/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-bullet-points/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/bullet-points-amazon/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-bullet-points/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/bullet-points-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-bullet-points/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/bullet-points-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-description-a-plus-content/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
+    <loc>https://spadaccini-seo.fr/guides/description-amazon-contenu-a-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/description-amazon-contenu-a-plus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-description-a-plus-content/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/description-amazon-contenu-a-plus/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-description-a-plus-content/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-description-a-plus-content/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/description-amazon-contenu-a-plus/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-description-a-plus-content/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/description-amazon-contenu-a-plus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-description-a-plus-content/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/description-amazon-contenu-a-plus/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-images/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
+    <loc>https://spadaccini-seo.fr/guides/images-produit-amazon/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/images-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-product-images/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/images-produit-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-images/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-product-images/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/images-produit-amazon/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-product-images/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/images-produit-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-product-images/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/images-produit-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-search-terms/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
+    <loc>https://spadaccini-seo.fr/guides/mots-cles-recherche-amazon/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/mots-cles-recherche-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-search-terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/mots-cles-recherche-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-search-terms/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/guides/amazon-search-terms/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/guides/mots-cles-recherche-amazon/"/>
+    <loc>https://spadaccini-seo.fr/en/guides/amazon-search-terms/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/guides/mots-cles-recherche-amazon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/guides/amazon-search-terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/guides/mots-cles-recherche-amazon/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
+    <loc>https://spadaccini-seo.fr/a-propos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/a-propos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/a-propos/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/about/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/a-propos/"/>
+    <loc>https://spadaccini-seo.fr/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/a-propos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/a-propos/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
+    <loc>https://spadaccini-seo.fr/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/contact/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://antoinespad71.github.io/testeur-fiche-amazon/en/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://antoinespad71.github.io/testeur-fiche-amazon/en/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://antoinespad71.github.io/testeur-fiche-amazon/contact/"/>
+    <loc>https://spadaccini-seo.fr/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/contact/"/>
     <lastmod>2026-11-04</lastmod>
   </url>
 </urlset>
