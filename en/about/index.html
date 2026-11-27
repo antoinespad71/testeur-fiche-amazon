@@ -235,6 +235,14 @@ footer.pied{display:block;margin-top:32px;padding:32px 0 calc(28px + env(safe-ar
 .cta .cta-mail{color:#F7F6F5}
 .etapes li::before{background:#0A4533;color:#F7F6F5}
 .hero .apercu-carte,.hero .carte-id,.hero .apercu-carte .v,.hero .id-nom{color:#12241D}
+/* Correctifs du 27/11 : boutons des encadrés, avis longs */
+.cta .btn{background:#C8F366;color:#0A4533;border-color:#C8F366}
+.cta .btn:hover{background:#B6E54C;border-color:#B6E54C}
+.cta .btn.ligne{background:transparent;color:#F7F6F5;border-color:rgba(247,246,245,.5)}
+.cta .cta-titre{color:#F7F6F5}
+.cta a:not(.btn):not(.cta-main):not(.cta-mail){color:#F7F6F5}
+.avis-txt{display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.avis-suite{font-size:13.5px;font-weight:700;color:var(--accent)}
 </style>
 </head>
 <body>
