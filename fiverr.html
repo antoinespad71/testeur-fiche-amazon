@@ -58,11 +58,16 @@
 (function () {
   var FIVERR = "https://fr.fiverr.com/antoine_spad/optimize-the-seo-of-your-amazon-france-product-listings";
   var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqGo0wuLbb8Wuq9jI9IRqt3RuAlTE8tsUfMPQfXyq_CP1qxp3nZkdEzLvoDfpuhdg5/exec";
+  var GIG_SITE = "https://fr.fiverr.com/antoine_spad/do-on-page-seo-geo-and-aeo-optimization-to-rank-on-google-and-ai-search";
   var fiche = "", src = "";
   try {
     var p = new URLSearchParams(location.search);
     fiche = (p.get("fiche") || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
     src = (p.get("src") || "").slice(0, 40);
+    if (p.get("offre") === "site") {   // prospect site web : gig SEO de site
+      FIVERR = GIG_SITE;
+      document.getElementById("lien").href = GIG_SITE;
+    }
   } catch (e) {}
   try {
     var corps = new URLSearchParams({ type: "evenement", evenement: "clic Fiverr (mail)",
