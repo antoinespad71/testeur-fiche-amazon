@@ -520,6 +520,40 @@ a.marque-perso{color:inherit;text-decoration:none}
 .avis-suite{font-size:13.5px;font-weight:700;color:var(--accent)}
 </style>
 
+<style>
+/* Rapport par email et comparaison (27/11) */
+.rapport-mail{margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center;border:2px solid #0A4533}
+.rapport-mail h2,.compare h2{font:800 22px/1.2 var(--display);margin:0 0 6px}
+.rapport-mail .rm-txt p,.compare .comp-intro{margin:0;color:var(--muted);font-size:16px;line-height:1.5}
+.rm-ligne,.comp-ligne{display:flex;gap:10px}
+.rm-ligne input,.comp-ligne input{flex:1;min-width:0;font:500 16px/1.2 var(--body);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--field);color:var(--fg)}
+.rm-ligne input:focus,.comp-ligne input:focus{outline:2px solid #0A4533;outline-offset:1px}
+.rm-btn{flex:none;font:700 16px/1 var(--body);padding:14px 18px;border-radius:12px;border:2px solid #0A4533;background:#0A4533;color:#F7F6F5;cursor:pointer}
+.rm-btn:hover{background:#0d5a43}
+.rm-btn[disabled]{opacity:.6;cursor:wait}
+.rm-note{margin:10px 0 0;font-size:13.5px;color:var(--muted);line-height:1.45}
+.rm-msg{margin:10px 0 0;font-weight:600;font-size:15px}
+.rm-msg:empty{display:none}
+.rm-msg.ok{color:var(--good)}.rm-msg.err{color:var(--bad)}
+.piege{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.compare{margin-top:20px}
+.compare .comp-ligne{margin-top:14px}
+.comp-msg{margin:10px 0 0;font-weight:600;font-size:15px}
+.comp-msg:empty{display:none}
+.comp-msg.err{color:var(--bad)}
+.comp-res{margin-top:18px}
+.comp-synthese{margin:0 0 14px;font-size:16.5px;line-height:1.5}
+.comp-table{width:100%;border-collapse:collapse;font-size:15.5px}
+.comp-table th,.comp-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.comp-table thead th{font:700 13px/1.2 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.comp-table td.n{white-space:nowrap;font-weight:700}
+.comp-table tr.total td{font-weight:800;font-size:17px;border-bottom:0}
+.comp-table .mieux{color:var(--good)}
+.comp-table .moins{color:var(--bad)}
+.comp-table .detail{display:block;font-weight:400;font-size:13.5px;color:var(--muted)}
+@media (max-width:760px){.rapport-mail{grid-template-columns:1fr}.rm-ligne,.comp-ligne{flex-direction:column}.comp-table{font-size:14.5px}.comp-table th,.comp-table td{padding:9px 6px}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -663,6 +697,35 @@ a.marque-perso{color:inherit;text-decoration:none}
         <summary id="okSummary">Points conformes</summary>
         <ul class="issues" id="oks"></ul>
       </details>
+    </section>
+
+    <section class="card compare" id="compBloc" aria-label="Comparer avec un concurrent" hidden>
+      <h2>Comparez votre fiche à un concurrent</h2>
+      <p class="comp-intro">Collez le lien de la fiche d'un concurrent direct : elle est notée avec la même grille, critère par critère.</p>
+      <div class="comp-ligne">
+        <label for="compLien" class="sr-only">Lien de la fiche concurrente</label>
+        <input type="url" id="compLien" placeholder="https://www.amazon.fr/dp/B0..." autocomplete="off" inputmode="url">
+        <button type="button" class="rm-btn" id="compBtn">Comparer</button>
+      </div>
+      <p class="comp-msg" id="compMsg" role="status"></p>
+      <div class="comp-res" id="compRes" hidden></div>
+    </section>
+
+    <section class="card rapport-mail" id="rapportMail" hidden aria-label="Recevoir le rapport par email">
+      <div class="rm-txt">
+        <h2>Recevez ce rapport par email</h2>
+        <p>Le score, les corrections classées par priorité et le détail de chaque point, en PDF : à garder, à transmettre ou à comparer après vos modifications.</p>
+      </div>
+      <form id="rmForm" novalidate>
+        <div class="rm-ligne">
+          <label for="rmEmail" class="sr-only">Votre adresse email</label>
+          <input type="email" id="rmEmail" placeholder="votre@email.fr" autocomplete="email" maxlength="120">
+          <input type="text" id="rmPiege" class="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="rm-btn" id="rmBtn">Recevoir le rapport</button>
+        </div>
+        <p class="rm-note">Vous recevez le rapport de votre fiche, et je peux vous écrire une fois pour savoir s'il vous a été utile. Pas de newsletter, votre adresse n'est jamais transmise.</p>
+        <p class="rm-msg" id="rmMsg" role="status"></p>
+      </form>
     </section>
   </section>
 
@@ -1078,11 +1141,18 @@ a.marque-perso{color:inherit;text-decoration:none}
       .filter(Boolean);
   }
 
-  function analyser() {
-    var marque = $("marque").value.trim(), t = $("titre").value.trim(), ih = $("ih").value.trim();
-    var bl = lireBullets(), d = $("desc").value.trim();
+  // Fiche lue dans les champs de la page (ou fiche passée en paramètre : concurrent)
+  function lireChamps() {
+    return { marque: $("marque").value.trim(), titre: $("titre").value.trim(), ih: $("ih").value.trim(),
+      bullets: lireBullets(), desc: $("desc").value.trim(), images: parseInt($("images").value, 10) || 0,
+      video: $("video").checked, aplus: $("aplus").checked };
+  }
+  function analyser(fiche) {
+    var v = fiche || lireChamps();
+    var marque = v.marque || "", t = v.titre || "", ih = v.ih || "";
+    var bl = v.bullets || [], d = v.desc || "";
     if (d && norm(d) === norm(MARQ_APLUS)) { d = ""; }
-    var nImg = parseInt($("images").value, 10) || 0, video = $("video").checked, aplus = $("aplus").checked;
+    var nImg = v.images || 0, video = !!v.video, aplus = !!v.aplus;
     var issues = [], oks = [];
     function add(cond, pts, sev, zone, ko, ok) {
       if (cond) { oks.push({ zone: zone, txt: ok }); return pts; }
@@ -1184,7 +1254,7 @@ a.marque-perso{color:inherit;text-decoration:none}
     var obtenu = 0, possible = 0;
     parts.forEach(function (p) { if (p[1] !== null) { obtenu += p[1]; possible += p[2]; } });
     var score = Math.round(obtenu / possible * 100);
-    return { score: score, parts: parts, issues: issues, oks: oks, t: t, ih: ih, bl: bl, d: d };
+    return { score: score, parts: parts, issues: issues, oks: oks, t: t, ih: ih, bl: bl, d: d, nImg: nImg, video: video, aplus: aplus };
   }
 
   function compteur(el, n, max, unit) {
@@ -1277,6 +1347,7 @@ a.marque-perso{color:inherit;text-decoration:none}
       $("ctaTexte").textContent = (nh ? nh + " correction" + (nh > 1 ? "s" : "") + " prioritaire" + (nh > 1 ? "s" : "") + " sur votre fiche. " : "") +
         "Je la réécris entièrement, prête à copier dans Seller Central.";
     }
+    if (concurrent) afficherComparaison();
     if (CONTACT) {
       // le formulaire de contact reprend la fiche analysée et son score (lien + mémoire du navigateur)
       var href = CONTACT + "?src=testeur" + (dernierAsin ? "&fiche=" + dernierAsin + "&score=" + r.score : "");
@@ -1312,6 +1383,7 @@ a.marque-perso{color:inherit;text-decoration:none}
     $("champsTitre").textContent = titre || "Vérifiez et complétez votre fiche";
     $("scoreVide").hidden = true; $("scorePlein").hidden = false;
     $("corrBloc").hidden = false; $("mbar").hidden = false;
+    $("compBloc").hidden = false; $("rapportMail").hidden = false;
     $("resultat").hidden = false; document.body.classList.add("avec-barre");
     // le score repart de zéro à chaque nouvelle analyse
     var anneau = $("ringVal");
@@ -1427,6 +1499,7 @@ a.marque-perso{color:inherit;text-decoration:none}
             return;
           }
           noterFiche(d.asin || idL); majQuota();
+          if (concurrent && (d.asin || idL) !== dernierAsin) { concurrent = null; $("compRes").hidden = true; $("compLien").value = ""; }
           CHAMPS.forEach(function (id) { $(id).classList.remove("ex"); });
           $("exampleBar").hidden = true;
           $("marque").value = d.marque || "";
@@ -1475,6 +1548,41 @@ a.marque-perso{color:inherit;text-decoration:none}
         analyserLien();
       }
     } catch (e) {}
+    // comparaison (dans ce bloc : accès au compteur de la limite)
+    (function () {
+    var compBtn = $("compBtn"), compMsg = $("compMsg");
+    function compInfo(txt, cls) { compMsg.textContent = txt; compMsg.className = "comp-msg " + (cls || ""); }
+    function comparer() {
+      var lien = $("compLien").value.trim(), asin = asinDe(lien);
+      if (!asin) { compInfo("Collez le lien complet d'une fiche Amazon, avec /dp/ suivi de la référence.", "err"); $("compLien").focus(); return; }
+      if (dernierAsin && asin === dernierAsin) { compInfo("C'est votre propre fiche : collez celle d'un concurrent.", "err"); return; }
+      var cpt = lireCompteur();
+      if (cpt.fiches.length >= LIMITE_JOUR && cpt.fiches.indexOf(asin) < 0) {
+        compInfo("Limite de " + LIMITE_JOUR + " fiches analysées aujourd'hui atteinte (la fiche concurrente compte dans la limite). Revenez demain.", "err");
+        evenement("limite atteinte", "comparaison"); return;
+      }
+      compBtn.disabled = true; compBtn.textContent = "Lecture…"; compInfo("");
+      fetch(WORKER_URL + "?url=" + encodeURIComponent("https://www.amazon.fr/dp/" + asin))
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d && d.raison === "limite") { compInfo("Limite de " + LIMITE_JOUR + " fiches analysées aujourd'hui atteinte. Revenez demain.", "err"); evenement("limite atteinte", "relais · comparaison"); return; }
+          if (!d || !d.ok) {
+            compInfo(d && d.raison === "introuvable" ? "Cette fiche est introuvable sur Amazon. Vérifiez le lien." : "Amazon n'a pas laissé lire cette fiche. Réessayez dans un instant.", "err");
+            return;
+          }
+          noterFiche(d.asin || asin); majQuota();
+          concurrent = { asin: d.asin || asin, marque: (d.marque || "").slice(0, 40), r: analyser({
+            marque: d.marque || "", titre: d.titre || "", ih: d.item_highlights || "", bullets: d.bullets || [],
+            desc: d.description || "", images: d.images || 0, video: !!d.video, aplus: !!d.aplus }) };
+          afficherComparaison();
+          evenement("comparaison", [dernierAsin || "saisie", concurrent.asin, analyser().score + "/100", concurrent.r.score + "/100"].join(" · "));
+        })
+        .catch(function () { compInfo("La lecture n'a pas abouti. Réessayez dans un instant.", "err"); })
+        .then(function () { compBtn.disabled = false; compBtn.textContent = "Comparer"; });
+    }
+    compBtn.addEventListener("click", comparer);
+    $("compLien").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); comparer(); } });
+    })();
   }
 
   // ---- Envoi vers le script Google : statistiques
@@ -1507,6 +1615,108 @@ a.marque-perso{color:inherit;text-decoration:none}
     });
 
   }
+
+  // ---- Comparaison avec un concurrent (27/11) : même relais, même grille
+  var concurrent = null;   // { asin, marque, r } : dernière fiche concurrente comparée
+  function asinDe(lien) {
+    var m = String(lien).match(/\/(?:dp|gp\/product|gp\/aw\/d|product)\/([A-Z0-9]{10})/i);
+    return m ? m[1].toUpperCase() : (/^[A-Z0-9]{10}$/i.test(String(lien).trim()) ? String(lien).trim().toUpperCase() : "");
+  }
+  function oui(b) { return b ? "oui" : "non"; }
+  function afficherComparaison() {
+    var res = $("compRes");
+    if (!concurrent) { res.hidden = true; return; }
+    var moi = analyser(), lui = concurrent.r;
+    res.textContent = "";
+    var mieux = [], moins = [];
+    lui.parts.forEach(function (p, i) {
+      var a = moi.parts[i][1], b = p[1], nom = p[0].replace(/\s*\(.*\)$/, "");
+      if (b > a) mieux.push(nom); else if (a > b) moins.push(nom);
+    });
+    var ecart = moi.score - lui.score, syn = document.createElement("p");
+    syn.className = "comp-synthese";
+    var nomC = concurrent.marque ? "La fiche " + concurrent.marque : "La fiche concurrente";
+    syn.textContent = (ecart > 0 ? "Votre fiche devance " + (concurrent.marque || "ce concurrent") + " de " + ecart + " point" + (ecart > 1 ? "s" : "") + "."
+      : ecart < 0 ? nomC + " vous devance de " + (-ecart) + " point" + (ecart < -1 ? "s" : "") + "."
+      : "Les deux fiches obtiennent le même score.") +
+      (mieux.length ? " Le concurrent fait mieux sur : " + mieux.join(", ") + "." : " Le concurrent ne fait mieux sur aucun critère.") +
+      (moins.length ? " Vous faites mieux sur : " + moins.join(", ") + "." : "");
+    res.appendChild(syn);
+    var details = [
+      moi.t.length + " car. / " + lui.t.length + " car.",
+      (moi.ih ? "renseigné" : "vide") + " / " + (lui.ih ? "renseigné" : "vide"),
+      moi.bl.length + " / " + lui.bl.length + " bullet points",
+      (moi.aplus ? "A+" : moi.d ? moi.d.length + " car." : "vide") + " / " + (lui.aplus ? "A+" : lui.d ? lui.d.length + " car." : "vide"),
+      moi.nImg + " / " + lui.nImg + " images",
+      oui(moi.video) + " / " + oui(lui.video)
+    ];
+    var t = document.createElement("table"); t.className = "comp-table";
+    var th = document.createElement("thead"), trh = document.createElement("tr");
+    ["Critère", "Votre fiche", concurrent.marque || "Concurrent"].forEach(function (x) { var c = document.createElement("th"); c.textContent = x; trh.appendChild(c); });
+    th.appendChild(trh); t.appendChild(th);
+    var tb = document.createElement("tbody");
+    function ligne(nom, det, a, b, max, cls) {
+      var tr = document.createElement("tr"); if (cls) tr.className = cls;
+      var c0 = document.createElement("td"); c0.textContent = nom;
+      if (det) { var sp = document.createElement("span"); sp.className = "detail"; sp.textContent = det; c0.appendChild(sp); }
+      var c1 = document.createElement("td"), c2 = document.createElement("td");
+      c1.className = "n" + (a > b ? " mieux" : a < b ? " moins" : ""); c2.className = "n" + (b > a ? " mieux" : b < a ? " moins" : "");
+      c1.textContent = a + "/" + max; c2.textContent = b + "/" + max;
+      tr.appendChild(c0); tr.appendChild(c1); tr.appendChild(c2); tb.appendChild(tr);
+    }
+    lui.parts.forEach(function (p, i) { ligne(p[0].replace(/\s*\(.*\)$/, ""), details[i], moi.parts[i][1], p[1], p[2]); });
+    ligne("Score global", "", moi.score, lui.score, 100, "total");
+    t.appendChild(tb); res.appendChild(t);
+    res.hidden = false;
+  }
+  // Contenu du rapport envoyé par email
+  function rapportDonnees() {
+    if (!actif) return null;
+    var r = analyser();
+    var d = { outil: "amazon", cible: dernierAsin || "saisie manuelle", score: r.score,
+      titre: r.t.slice(0, 200), marque: $("marque").value.trim().slice(0, 60),
+      parts: r.parts.map(function (p) { return [p[0], p[1], p[2]]; }),
+      issues: r.issues.map(function (i) { return { sev: i.sev, zone: i.zone, txt: i.txt }; }),
+      oks: r.oks.map(function (i) { return { zone: i.zone, txt: i.txt }; }) };
+    if (concurrent) d.concurrent = { asin: concurrent.asin, marque: concurrent.marque, score: concurrent.r.score,
+      parts: concurrent.r.parts.map(function (p) { return [p[0], p[1], p[2]]; }) };
+    return d;
+  }
+
+  // ---- Rapport par email (27/11) : le script Google l'envoie en PDF et note le contact
+  (function () {
+    var f = document.getElementById("rmForm");
+    if (!f || !SCRIPT_URL) return;
+    var debut = Date.now(), envoyes = {};
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var msg = document.getElementById("rmMsg"), btn = document.getElementById("rmBtn");
+      var email = document.getElementById("rmEmail").value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        msg.className = "rm-msg err"; msg.textContent = "Indiquez une adresse email valide.";
+        document.getElementById("rmEmail").focus(); return;
+      }
+      var d = rapportDonnees();
+      if (!d) { msg.className = "rm-msg err"; msg.textContent = "Lancez d'abord une analyse."; return; }
+      var cle = email.toLowerCase() + "|" + d.cible + "|" + d.score;
+      if (envoyes[cle]) { msg.className = "rm-msg ok"; msg.textContent = "Ce rapport est déjà en route vers " + email + "."; return; }
+      var src = ""; try { src = new URLSearchParams(location.search).get("src") || ""; } catch (err) {}
+      btn.disabled = true; btn.textContent = "Envoi…";
+      envoyer({ type: "rapport", outil: d.outil, email: email, site: document.getElementById("rmPiege").value,
+        duree: String(Math.round((Date.now() - debut) / 1000)), cible: d.cible, score: String(d.score), src: src,
+        donnees: JSON.stringify(d) })
+        .then(function () {
+          envoyes[cle] = 1;
+          msg.className = "rm-msg ok";
+          msg.textContent = "C'est parti : le rapport arrive dans quelques minutes à " + email + ". Pensez à regarder dans les indésirables.";
+        })
+        .catch(function () {
+          msg.className = "rm-msg err";
+          msg.textContent = "L'envoi n'a pas abouti. Réessayez dans un instant.";
+        })
+        .then(function () { btn.disabled = false; btn.textContent = "Recevoir le rapport"; });
+    });
+  })();
 })();
 </script>
 <script>
