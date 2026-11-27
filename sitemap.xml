@@ -4,10 +4,14 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://spadaccini-seo.fr/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/"/>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://spadaccini-seo.fr/testeur-fiche-amazon/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/testeur-fiche-amazon/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/"/>
-    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/testeur-fiche-amazon/"/>
+    <lastmod>2026-11-27</lastmod>
     <video:video>
       <video:thumbnail_loc>https://spadaccini-seo.fr/video/apercu-video.jpg</video:thumbnail_loc>
       <video:title>Optimisation d'une fiche Amazon.fr, avant et après</video:title>
@@ -20,9 +24,9 @@
   </url>
   <url>
     <loc>https://spadaccini-seo.fr/en/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://spadaccini-seo.fr/testeur-fiche-amazon/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://spadaccini-seo.fr/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://spadaccini-seo.fr/testeur-fiche-amazon/"/>
     <lastmod>2026-11-04</lastmod>
     <video:video>
       <video:thumbnail_loc>https://spadaccini-seo.fr/video/apercu-video-en.jpg</video:thumbnail_loc>
@@ -204,7 +208,7 @@
   </url>
   <url>
     <loc>https://spadaccini-seo.fr/testeur-seo-site/</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <video:video>
       <video:thumbnail_loc>https://spadaccini-seo.fr/video/apercu-seo-site.jpg</video:thumbnail_loc>
       <video:title>Optimisation SEO d'une page de site web pour Google et les IA</video:title>
