@@ -560,6 +560,10 @@ a.marque-perso{color:inherit;text-decoration:none}
 .comp-table .detail{display:block;font-weight:400;font-size:13.5px;color:var(--muted)}
 @media (max-width:760px){.rapport-mail{grid-template-columns:1fr}.rm-ligne,.comp-ligne{flex-direction:column}.comp-table{font-size:14.5px}.comp-table th,.comp-table td{padding:9px 6px}}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.comp-table tr.partie td{font-weight:700;background:#F7F6F5}
+.comp-table tr.sous td:first-child{padding-left:22px}
+.compare .comp-table th:not(:first-child),.compare .comp-table td:not(:first-child){width:26%}
+.comp-ecarts{margin:16px 0 0;font:700 13px/1.2 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -666,6 +670,18 @@ a.marque-perso{color:inherit;text-decoration:none}
         <summary id="okSummary">Ce qui est déjà bien</summary>
         <ul class="issues" id="oks"></ul>
       </details>
+    </section>
+
+    <section class="card compare" id="compBloc" aria-label="Comparer avec un concurrent">
+      <h2>Comparez votre page à un concurrent</h2>
+      <p class="comp-intro">Collez l'adresse de la page d'un concurrent qui se positionne sur la même recherche : elle est notée avec la même grille et le même mot-clé.</p>
+      <div class="comp-ligne">
+        <label for="compLien" class="sr-only">Adresse de la page concurrente</label>
+        <input type="url" id="compLien" placeholder="https://www.concurrent.fr/page/" autocomplete="off" inputmode="url">
+        <button type="button" class="rm-btn" id="compBtn">Comparer</button>
+      </div>
+      <p class="comp-msg" id="compMsg" role="status"></p>
+      <div class="comp-res" id="compRes" hidden></div>
     </section>
 
     <section class="card rapport-mail" id="rapportMail" aria-label="Recevoir le rapport par email">
@@ -1398,6 +1414,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
   var dernierResultat = null, dernierMc = "";
   function afficher(r) {
     dernierResultat = r;
+    if (concurrentSite) { concurrentSite = null; $("compRes").hidden = true; $("compLien").value = ""; $("compMsg").textContent = ""; }
     var zone = $("resultat");
     zone.hidden = false;
     zone.classList.remove("anim"); void zone.offsetWidth; zone.classList.add("anim");
@@ -1507,6 +1524,100 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
   } catch (e) {}
 
 
+  // ---- Comparaison avec la page d'un concurrent (27/11) : même relais, même grille, même mot-clé
+  var concurrentSite = null;   // { url, r }
+  function notePartie(r, id) {
+    return Math.round(r.criteres.filter(function (k) { return k.partie === id; }).reduce(function (s, k) { return s + k.note; }, 0));
+  }
+  function ecartsSite(moi, lui) {
+    // critères où les deux pages diffèrent d'au moins un point, les plus gros écarts d'abord
+    return moi.criteres.map(function (k, i) {
+      var c = lui.criteres[i];
+      return { nom: court(k.nom), moi: Math.round(k.note * 10) / 10, lui: Math.round(c.note * 10) / 10, max: k.max };
+    }).filter(function (x) { return Math.abs(x.moi - x.lui) >= 1; })
+      .sort(function (a, b) { return Math.abs(b.moi - b.lui) - Math.abs(a.moi - a.lui); });
+  }
+  function nb(x) { return String(Math.round(x * 10) / 10).replace(".", ","); }
+  function afficherComparaisonSite() {
+    var res = $("compRes"), moi = dernierResultat, c = concurrentSite;
+    if (!moi || !c) { res.hidden = true; return; }
+    var lui = c.r, hote = hoteDe(lui.url) || "Concurrent";
+    res.replaceChildren();
+    var ecarts = ecartsSite(moi, lui);
+    var mieux = ecarts.filter(function (x) { return x.lui > x.moi; }).map(function (x) { return x.nom; });
+    var moins = ecarts.filter(function (x) { return x.moi > x.lui; }).map(function (x) { return x.nom; });
+    var d = moi.score - lui.score;
+    res.append(el("p", "comp-synthese",
+      (d > 0 ? "Votre page devance " + hote + " de " + d + " point" + (d > 1 ? "s" : "") + "."
+        : d < 0 ? hote + " vous devance de " + (-d) + " point" + (d < -1 ? "s" : "") + "."
+        : "Les deux pages obtiennent le même score.") +
+      (mieux.length ? " Le concurrent fait mieux sur : " + mieux.slice(0, 5).join(", ") + "." : " Le concurrent ne fait mieux sur aucun critère.") +
+      (moins.length ? " Vous faites mieux sur : " + moins.slice(0, 5).join(", ") + "." : "")));
+    var t = el("table", "comp-table"), th = el("thead"), tr = el("tr");
+    ["Critère", "Votre page", hote].forEach(function (x) { tr.append(el("th", "", x)); });
+    th.append(tr); t.append(th);
+    var tb = el("tbody");
+    function ligne(nom, det, a, b, max, cls, texte) {
+      var r = el("tr", cls || ""), c0 = el("td", "", nom);
+      if (det) c0.append(el("span", "detail", det));
+      var c1 = el("td", "n" + (a > b ? " mieux" : a < b ? " moins" : ""), texte ? texte[0] : nb(a) + "/" + max);
+      var c2 = el("td", "n" + (b > a ? " mieux" : b < a ? " moins" : ""), texte ? texte[1] : nb(b) + "/" + max);
+      r.append(c0, c1, c2); tb.append(r);
+    }
+    PARTIES.forEach(function (p) { ligne(p.nom, "", notePartie(moi, p.id), notePartie(lui, p.id), p.max, "partie"); });
+    ligne("Texte de la page", "nombre de mots lus", moi.mots, lui.mots, 0, "sous", [moi.mots + " mots", lui.mots + " mots"]);
+    ligne("Score global", "", moi.score, lui.score, 100, "total");
+    t.append(tb); res.append(t);
+    if (ecarts.length) {
+      res.append(el("p", "comp-ecarts", "Où se fait la différence"));
+      var t2 = el("table", "comp-table"), tb2 = el("tbody");
+      ecarts.slice(0, 8).forEach(function (x) {
+        var r = el("tr"), c0 = el("td", "", x.nom);
+        r.append(c0, el("td", "n" + (x.moi > x.lui ? " mieux" : " moins"), nb(x.moi) + "/" + x.max), el("td", "n" + (x.lui > x.moi ? " mieux" : " moins"), nb(x.lui) + "/" + x.max));
+        tb2.append(r);
+      });
+      t2.append(tb2); res.append(t2);
+    }
+    res.hidden = false;
+  }
+  (function () {
+    var btn = $("compBtn"), msg = $("compMsg");
+    if (!btn) return;
+    function info(t, cls) { msg.textContent = t; msg.className = "comp-msg " + (cls || ""); }
+    function comparer() {
+      var lien = $("compLien").value.trim();
+      if (!dernierResultat) { info("Lancez d'abord l'analyse de votre page.", "err"); return; }
+      if (!lien || !/\./.test(lien)) { info("Indiquez l'adresse d'une page concurrente, par exemple concurrent.fr/sa-page/", "err"); $("compLien").focus(); return; }
+      var u = lien.indexOf("//") < 0 ? "https://" + lien : lien;
+      if (u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") === dernierResultat.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")) {
+        info("C'est votre propre page : collez celle d'un concurrent.", "err"); return;
+      }
+      btn.disabled = true; btn.textContent = "Analyse…"; info("");
+      fetch(WORKER_URL + "?url=" + encodeURIComponent(lien))
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d.ok) {
+            var m = {
+              lien: "Cette adresse n'est pas valide. Vérifiez-la et réessayez.",
+              inaccessible: "Impossible d'ouvrir cette page : le site ne répond pas ou bloque les robots.",
+              pas_html: "Cette adresse ne mène pas à une page web.",
+              limite: "Vous avez déjà analysé 3 sites aujourd'hui (la page concurrente compte dans la limite). Revenez demain."
+            }[d.raison] || "L'analyse n'a pas abouti. Réessayez dans quelques instants.";
+            if (d.raison === "limite") evenement("site : limite", "comparaison");
+            info(m, "err"); return;
+          }
+          if (d.statut >= 400) { info("Cette page répond avec une erreur " + d.statut + ". Vérifiez l'adresse.", "err"); return; }
+          concurrentSite = { url: d.finale || lien, r: analyser(d, dernierMc) };
+          afficherComparaisonSite();
+          evenement("site : comparaison", [hoteDe(dernierResultat.url), hoteDe(concurrentSite.r.url), dernierResultat.score + "/100", concurrentSite.r.score + "/100"].join(" · "));
+        })
+        .catch(function () { info("L'analyse n'a pas abouti. Vérifiez l'adresse et réessayez.", "err"); })
+        .then(function () { btn.disabled = false; btn.textContent = "Comparer"; });
+    }
+    btn.addEventListener("click", comparer);
+    $("compLien").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); comparer(); } });
+  })();
+
   // Contenu du rapport envoyé par email
   function rapportDonnees() {
     var r = dernierResultat;
@@ -1522,7 +1633,10 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")m.forEach(fu
         return { sev: (k.max - k.note >= 3 || k.note < k.max / 2) ? "haute" : "moyenne", zone: court(k.nom),
           txt: k.problemes.join(" ") + (k.conseil ? " À faire : " + k.conseil : "") };
       }),
-      oks: r.criteres.filter(function (k) { return aFaire.indexOf(k) < 0; }).map(function (k) { return { zone: court(k.nom), txt: k.vu || "" }; }) };
+      oks: r.criteres.filter(function (k) { return aFaire.indexOf(k) < 0; }).map(function (k) { return { zone: court(k.nom), txt: k.vu || "" }; }),
+      concurrent: concurrentSite ? { url: concurrentSite.r.url.slice(0, 300), score: concurrentSite.r.score,
+        parts: PARTIES.map(function (p) { return [p.nom, notePartie(concurrentSite.r, p.id), p.max]; }),
+        ecarts: ecartsSite(r, concurrentSite.r).slice(0, 8).map(function (x) { return [x.nom, x.moi, x.lui, x.max]; }) } : null };
   }
   function envoyer(donnees) {
     return fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", keepalive: true, body: new URLSearchParams(donnees) });
